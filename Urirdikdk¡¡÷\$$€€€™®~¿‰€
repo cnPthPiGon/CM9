@@ -5,7 +5,7 @@ local Window = OrionLib:MakeWindow({
     Name = "Destroyer hub",
     HidePremium = false,
     SaveConfig = true,
-    ConfigFolder = "DestroyerHub" -- Met un nom personnalisÃ© pour ton hub ici
+    ConfigFolder = "DestroyerHub" -- Met un nom personnalisé pour ton hub ici
 })
 
 print("Successfully executed.") -- Just a debug
@@ -17,7 +17,7 @@ local Tab = Window:MakeTab({
 })
 
 local Section = Tab:AddSection({
-    Name = "Destroyer â˜ ï¸"
+    Name = "Destroyer ☠️"
 })
 
 Tab:AddButton({
@@ -505,9 +505,9 @@ end
 
 -- Show notification based on rig type
 if isR6 then
-    showNotification("ðŸŒŸ R6 detected!")
+    showNotification("🌟 R6 detected!")
 else
-    showNotification("âœ¨ R15 detected!")
+    showNotification("✨ R15 detected!")
 end
 
 -- Create Screen GUI
@@ -533,7 +533,7 @@ local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, -60, 0, 30)
 title.Position = UDim2.new(0, 10, 0, 0)
 title.BackgroundTransparency = 1
-title.Text = "ðŸŽ¨ Choose a Script"
+title.Text = "🎨 Choose a Script"
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.Font = Enum.Font.SourceSansBold
 title.TextSize = 24
@@ -600,11 +600,11 @@ layout.Parent = scrollingFrame
 
 -- Buttons Data
 local buttons = {
-    {name = "ðŸŽ¯ Bang V2", r6 = "https://pastebin.com/raw/aPSHMV6K", r15 = "https://pastebin.com/raw/1ePMTt9n"},
-    {name = "ðŸŽ‰ Get Banged", r6 = "https://pastebin.com/raw/zHbw7ND1", r15 = "https://pastebin.com/raw/7hvcjDnW"},
-    {name = "ðŸ’¥ Suck", r6 = "https://pastebin.com/raw/SymCfnAW", r15 = "https://pastebin.com/raw/p8yxRfr4"},
-    {name = "ðŸ”¥ Get Suc", r6 = "https://pastebin.com/raw/FPu4e2Qh", r15 = "https://pastebin.com/raw/DyPP2tAF"},
-    {name = "âš¡ Jerk", r6 = "https://pastefy.app/wa3v2Vgm/raw", r15 = "https://pastefy.app/YZoglOyJ/raw"}
+    {name = "🎯 Bang V2", r6 = "https://pastebin.com/raw/aPSHMV6K", r15 = "https://pastebin.com/raw/1ePMTt9n"},
+    {name = "🎉 Get Banged", r6 = "https://pastebin.com/raw/zHbw7ND1", r15 = "https://pastebin.com/raw/7hvcjDnW"},
+    {name = "💥 Suck", r6 = "https://pastebin.com/raw/SymCfnAW", r15 = "https://pastebin.com/raw/p8yxRfr4"},
+    {name = "🔥 Get Suc", r6 = "https://pastebin.com/raw/FPu4e2Qh", r15 = "https://pastebin.com/raw/DyPP2tAF"},
+    {name = "⚡ Jerk", r6 = "https://pastefy.app/wa3v2Vgm/raw", r15 = "https://pastefy.app/YZoglOyJ/raw"}
 }
 
 for _, buttonData in ipairs(buttons) do
@@ -668,7 +668,7 @@ Tab10:AddButton({
 
 local Tab11 = Window:MakeTab({
     Name = "Hd Admin Script",
-    Icon = "rbxassetid://11417471622",
+    Icon = "rbxassetid://9048948650",
     PremiumOnly = false
 })
 
@@ -680,9 +680,9 @@ Tab11:AddButton({
 })
 
 Tab11:AddButton({
-    Name = "kill all",
+    Name = "kill all bypass method",
     Callback = function()
-        local prefix = ";" -- prÃ©fixe HD Admin
+        local prefix = ";" -- préfixe HD Admin
 local cmdName = "kill" -- commande HD Admin
 
 -- Pour kill tout le monde
@@ -696,9 +696,9 @@ end
 })
 
 Tab11:AddButton({
-    Name = "bring all",
+    Name = "bring all bypass method",
     Callback = function()
-        local prefix = ";" -- prÃ©fixe HD Admin
+        local prefix = ";" -- préfixe HD Admin
 local cmdName = "bring" -- commande HD Admin
 
 -- Pour kill tout le monde
@@ -712,9 +712,9 @@ end
 })
 
 Tab11:AddButton({
-    Name = "freeze all",
+    Name = "freeze all bypass method",
     Callback = function()
-        local prefix = ";" -- prÃ©fixe HD Admin
+        local prefix = ";" -- préfixe HD Admin
 local cmdName = "freeze" -- commande HD Admin
 
 -- Pour kill tout le monde
@@ -728,9 +728,9 @@ end
 })
 
 Tab11:AddButton({
-    Name = "btools all",
+    Name = "btools all bypass method",
     Callback = function()
-        local prefix = ";" -- prÃ©fixe HD Admin
+        local prefix = ";" -- préfixe HD Admin
 local cmdName = "btools" -- commande HD Admin
 
 -- Pour kill tout le monde
@@ -744,9 +744,9 @@ end
 })
 
 Tab11:AddButton({
-    Name = "invisible all",
+    Name = "invisible all bypass method",
     Callback = function()
-        local prefix = ";" -- prÃ©fixe HD Admin
+        local prefix = ";" -- préfixe HD Admin
 local cmdName = "invisible" -- commande HD Admin
 
 -- Pour kill tout le monde
@@ -760,9 +760,9 @@ end
 })
 
 Tab11:AddButton({
-    Name = "re all",
+    Name = "re all bypass method",
     Callback = function()
-        local prefix = ";" -- prÃ©fixe HD Admin
+        local prefix = ";" -- préfixe HD Admin
 local cmdName = "re" -- commande HD Admin
 
 -- Pour kill tout le monde
@@ -776,9 +776,9 @@ end
 })
 
 Tab11:AddButton({
-    Name = "ff all",
+    Name = "ff all bypass method",
     Callback = function()
-        local prefix = ";" -- prÃ©fixe HD Admin
+        local prefix = ";" -- préfixe HD Admin
 local cmdName = "ff" -- commande HD Admin
 
 -- Pour kill tout le monde
@@ -792,9 +792,9 @@ end
 })
 
 Tab11:AddButton({
-    Name = "god mode all",
+    Name = "god mode all bypass method",
     Callback = function()
-        local prefix = ";" -- prÃ©fixe HD Admin
+        local prefix = ";" -- préfixe HD Admin
 local cmdName = "god" -- commande HD Admin
 
 -- Pour kill tout le monde
@@ -913,13 +913,6 @@ Tab11:AddButton({
 })
 
 Tab11:AddButton({
-    Name = "",
-    Callback = function()
-        game.Players:Chat(";insert ")
-    end    
-})
-
-Tab11:AddButton({
     Name = "Dummy",
     Callback = function()
         game.Players:Chat(";insert 124120704")
@@ -996,6 +989,1116 @@ Tab11:AddButton({
     end    
 })
 
+Tab11:AddButton({
+    Name = "jail all bypass method",
+    Callback = function()
+        local prefix = ";" -- préfixe HD Admin
+local cmdName = "jail" -- commande HD Admin
+
+-- Pour kill tout le monde
+for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix .. cmdName .. " " .. player.Name }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "ice all bypass method",
+    Callback = function()
+        local prefix = ";" -- préfixe HD Admin
+local cmdName = "ice" -- commande HD Admin
+
+-- Pour kill tout le monde
+for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix .. cmdName .. " " .. player.Name }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "loopkill all",
+    Callback = function()
+        _G.LoopKill = true -- Active le loop
+
+spawn(function()
+    while _G.LoopKill do
+        for _, player in pairs(game.Players:GetPlayers()) do
+            local args = { [1] = ";kill " .. player.Name }
+            game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+                :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+        end
+        wait(5)
+    end
+end)
+    end    
+})
+
+Tab11:AddButton({
+    Name = "unloop kill all",
+    Callback = function()
+        _G.LoopKill = false
+    end    
+})
+
+Tab11:AddButton({
+    Name = "loop bring all",
+    Callback = function()
+        _G.LoopBring = true -- Active le loop
+
+spawn(function()
+    while _G.LoopBring do
+        for _, player in pairs(game.Players:GetPlayers()) do
+            local args = { [1] = ";bring " .. player.Name }
+            game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+                :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+        end
+        wait(5)
+    end
+end)
+    end    
+})
+
+Tab11:AddButton({
+    Name = "unloop bring all",
+    Callback = function()
+        _G.LoopBring = false
+    end    
+})
+
+Tab11:AddButton({
+    Name = "loop jail all",
+    Callback = function()
+        _G.LoopJail = true -- Active le loop
+
+spawn(function()
+    while _G.LoopJail do
+        for _, player in pairs(game.Players:GetPlayers()) do
+            local args = { [1] = ";jail " .. player.Name }
+            game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+                :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+        end
+        wait(7)
+    end
+end)
+    end    
+})
+
+Tab11:AddButton({
+    Name = "unloop bring all",
+    Callback = function()
+        _G.LoopJail = false
+    end    
+})
+
+Tab11:AddButton({
+    Name = "loop ice all",
+    Callback = function()
+        _G.LoopIce = true -- Active le loop
+
+spawn(function()
+    while _G.LoopIce do
+        for _, player in pairs(game.Players:GetPlayers()) do
+            local args = { [1] = ";ice " .. player.Name }
+            game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+                :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+        end
+        wait(7.8)
+    end
+end)
+    end    
+})
+
+Tab11:AddButton({
+    Name = "unloop ice all",
+    Callback = function()
+        _G.LoopIce = false
+    end    
+})
+
+Tab11:AddButton({
+    Name = "loop respawn all",
+    Callback = function()
+        _G.LoopRespawn = true -- Active le loop
+
+spawn(function()
+    while _G.LoopRespawn do
+        for _, player in pairs(game.Players:GetPlayers()) do
+            local args = { [1] = ";re " .. player.Name }
+            game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+                :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+        end
+        wait(3.5)
+    end
+end)
+    end    
+})
+
+Tab11:AddButton({
+    Name = "unloop re all",
+    Callback = function()
+        _G.LoopRespawn = false
+    end    
+})
+
+Tab11:AddButton({
+    Name = "loop invisible all",
+    Callback = function()
+        _G.LoopInvisible = true -- Active le loop
+
+spawn(function()
+    while _G.LoopInvisible do
+        for _, player in pairs(game.Players:GetPlayers()) do
+            local args = { [1] = ";invisible " .. player.Name }
+            game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+                :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+        end
+        wait(5)
+    end
+end)
+    end    
+})
+
+Tab11:AddButton({
+    Name = "unloop invisible all",
+    Callback = function()
+        _G.LoopInvisible = false
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Bombo's Survival Knife",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. " 121946387" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Luger Pistol",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "95354288" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Golden Super Fly Boombox",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "212641536" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Ronin Katana",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "12187348" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Ice Dragon Slayer",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "168141301" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Bloxy Cola",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "10472779" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Historic 'Timmy' Gun",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "116693764" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Teddy Bloxpin",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "12848902" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Rainbow Magic Carpet",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "225921000" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Gravity Coil",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "16688968" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Body Swap Potion",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "78730532" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Fuse Bomb",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "11563251" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Ban Hammer",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "10468797" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Red Hyperlaser Gun",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "212296936" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Bat Scythe",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "306971294" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Subspace Tripmine",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "11999247" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Attack Doge",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "257810065" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Rainbow Periastron Omega",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "159229806" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Godzilla Companion",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "3130875522" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Katana",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "11453385" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Torch",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "31839337" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Ultimate Drive Speedster",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "253519495" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Hyperlaser Gun",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "130113146" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all The Fiery Sun",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "83021250" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Moneybag",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "16722267" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Red Rolling Hoverboard",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "398675172" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all The General's .45",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "97885508" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Skeleton Scythe",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "95951330" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Sword of the Epicredness",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "409745306" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Kylo Ren’s Lightsaber",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "1208300505" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Scythe",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "28275809" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Flashbang",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "16979083" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Icy Arctic Fowl",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "101078559" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Trench Warfare Shotgun",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "94233344" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Noir Periastron Psi",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "120307951" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Teddy Trap",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "12890798" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Grapple Hook",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "30393548" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Azure Periastron Alpha",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "69499437" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Crimson Periastron Mu",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "99119240" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Dracovin Spell Book",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "49491736" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Ivory Periastron",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "108158379" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Spray Paint",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "80576967" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Dark Spellbook of the Forgotten",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "56561579" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Zombie Staff",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "26421972" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear all Phoenix",
+    Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = ";gear " .. player.Name .. "92142799" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient")
+        :WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1)
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Bombo's Survival Knife",
+    Callback = function()
+        game.Players:Chat(";gear me 121946387")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Luger Pistol",
+    Callback = function()
+        game.Players:Chat(";gear me 95354288")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Golden Super Fly Boombox",
+    Callback = function()
+        game.Players:Chat(";gear me 212641536")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Ronin Katana",
+    Callback = function()
+        game.Players:Chat(";gear me 12187348")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Ice Dragon Slayer",
+    Callback = function()
+        game.Players:Chat(";gear me 168141301")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Bloxy Cola",
+    Callback = function()
+        game.Players:Chat(";gear me 10472779")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Historic 'Timmy' Gun",
+    Callback = function()
+        game.Players:Chat(";gear me 116693764")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Teddy Bloxpin",
+    Callback = function()
+        game.Players:Chat(";gear me 12848902")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Rainbow Magic Carpet",
+    Callback = function()
+        game.Players:Chat(";gear me 225921000")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Body Swap Potion",
+    Callback = function()
+        game.Players:Chat(";gear me 78730532")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Fuse Bomb",
+    Callback = function()
+        game.Players:Chat(";gear me 11563251")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Ban Hammer",
+    Callback = function()
+        game.Players:Chat(";gear me 10468797")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Red Hyperlaser Gun",
+    Callback = function()
+        game.Players:Chat(";gear me 212296936")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Subspace Tripmine",
+    Callback = function()
+        game.Players:Chat(";gear me 11999247")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Attack Doge",
+    Callback = function()
+        game.Players:Chat(";gear me 257810065")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Rainbow Periastron Omega",
+    Callback = function()
+        game.Players:Chat(";gear me 159229806")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Godzilla Companion",
+    Callback = function()
+        game.Players:Chat(";gear me 3130875522")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Katana",
+    Callback = function()
+        game.Players:Chat(";gear me 11453385")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Torch",
+    Callback = function()
+        game.Players:Chat(";gear me 31839337")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Ultimate Drive Speedster",
+    Callback = function()
+        game.Players:Chat(";gear me 253519495")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Hyperlaser Gun",
+    Callback = function()
+        game.Players:Chat(";gear me 130113146")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me The Fiery Sun",
+    Callback = function()
+        game.Players:Chat(";gear me 83021250")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Moneybag",
+    Callback = function()
+        game.Players:Chat(";gear me 16722267")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Cheezburger",
+    Callback = function()
+        game.Players:Chat(";gear me 16726030")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me The General's .45",
+    Callback = function()
+        game.Players:Chat(";gear me 97885508")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Skeleton Scythe",
+    Callback = function()
+        game.Players:Chat(";gear me 95951330")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Sword of the Epicredness",
+    Callback = function()
+        game.Players:Chat(";gear me 409745306")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Kylo Ren’s Lightsaber",
+    Callback = function()
+        game.Players:Chat(";gear me 1208300505")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Scythe",
+    Callback = function()
+        game.Players:Chat(";gear me 28275809")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Flashbang",
+    Callback = function()
+        game.Players:Chat(";gear me 16979083")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Trench Warfare Shotgun",
+    Callback = function()
+        game.Players:Chat(";gear me 94233344")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Noir Periastron Psi",
+    Callback = function()
+        game.Players:Chat(";gear me 120307951")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Grapple Hook",
+    Callback = function()
+        game.Players:Chat(";gear me 30393548")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Azure Periastron Alpha",
+    Callback = function()
+        game.Players:Chat(";gear me 69499437")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Crimson Periastron Mu",
+    Callback = function()
+        game.Players:Chat(";gear me 99119240")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Dracovin Spell Book",
+    Callback = function()
+        game.Players:Chat(";gear me 49491736")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Ivory Periastron",
+    Callback = function()
+        game.Players:Chat(";gear me 108158379")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Dark Spellbook of the Forgotten",
+    Callback = function()
+        game.Players:Chat(";gear me 56561579")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Zombie Staff",
+    Callback = function()
+        game.Players:Chat(";gear me 26421972")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Pepperoni Pizza",
+    Callback = function()
+        game.Players:Chat(";gear me 22596452")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Crescendo, The Soul Stealer",
+    Callback = function()
+        game.Players:Chat(";gear me 94794774")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me BB-8",
+    Callback = function()
+        game.Players:Chat(";gear me 1183007014")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Snowball",
+    Callback = function()
+        game.Players:Chat(";gear me 19328185")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Golden Steampunk Gloves",
+    Callback = function()
+        game.Players:Chat(";gear me ")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Red Convertible",
+    Callback = function()
+        game.Players:Chat(";gear me 164207580")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Deluxe Rainbow Magic Carpet",
+    Callback = function()
+        game.Players:Chat(";gear me 477910063")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Sword of Darkness",
+    Callback = function()
+        game.Players:Chat(";gear me 77443491")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me R-80",
+    Callback = function()
+        game.Players:Chat(";gear me 12562495")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "gear me Galactic Laser Gun",
+    Callback = function()
+        game.Players:Chat(";gear me 168143042")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "R6 ME",
+    Callback = function()
+        game.Players:Chat(";r6 me")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "R15 ME",
+    Callback = function()
+        game.Players:Chat(";r15 me")
+    end    
+})
+
+Tab11:AddButton({
+    Name = "R6 all bypass method",
+    Callback = function()
+        local prefix = ";" -- Le préfixe de la commande HD Admin
+local cmdName = "r6" -- Le nom de la commande pour changer en R6
+
+-- Fonction pour envoyer la commande à tous les joueurs
+for i, v in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix..cmdName.." all" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient"):WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1) -- Attendre un peu entre chaque commande pour éviter de surcharger
+end
+    end    
+})
+
+Tab11:AddButton({
+    Name = "R15 all bypass method",
+    Callback = function()
+        local prefix = ";" -- Le préfixe de la commande HD Admin
+local cmdName = "r15" -- Le nom de la commande pour changer en R6
+
+-- Fonction pour envoyer la commande à tous les joueurs
+for i, v in pairs(game.Players:GetPlayers()) do
+    local args = { [1] = prefix..cmdName.." all" }
+    game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient"):WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+    wait(0.1) -- Attendre un peu entre chaque commande pour éviter de surcharger
+end
+    end    
+})
+
+
 local Tab12 = Window:MakeTab({
     Name = "F3x replication",
     Icon = "rbxassetid://11417471622",
@@ -1013,5 +2116,417 @@ Tab12:AddButton({
     Name = "f3x backdoor",
     Callback = function()
         loadstring(game:HttpGet('https://gist.githubusercontent.com/MRSBLACK999/a1521a41ab1d1b67f5073aacce0bce32/raw/432ed275c41a160eca06ca1ad473a67a50168182/Fe%2520F3x%2520Backdoor%2520Gui'))()
+    end    
+})
+
+local Tab13 = Window:MakeTab({
+    Name = "HeadAdmin hd",
+    Icon = "rbxassetid://9048948650",
+    PremiumOnly = false
+})
+
+Tab13:AddButton({
+    Name = "jail all",
+    Callback = function()
+        game.Players:Chat(";jail all")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "invisible all",
+    Callback = function()
+        game.Players:Chat(";invisible all")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "ice all",
+    Callback = function()
+        game.Players:Chat(";ice all")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "kill all",
+    Callback = function()
+        game.Players:Chat(";kill all")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "explode all",
+    Callback = function()
+        game.Players:Chat(";explode all")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "bring all",
+    Callback = function()
+        game.Players:Chat(";bring all")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "respawn all",
+    Callback = function()
+        game.Player:Chat(";re all")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "ff all",
+    Callback = function()
+        game.Players:Chat(";ff all")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "btools all",
+    Callback = function()
+        game.Players:Chat(";btools all")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Bombo's Survival Knife",
+    Callback = function()
+        game.Players:Chat(";gear all 121946387")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Luger Pistol",
+    Callback = function()
+        game.Players:Chat(";gear all 95354288")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Golden Super Fly Boombox",
+    Callback = function()
+        game.Players:Chat(";gear all 212641536")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Ronin Katana",
+    Callback = function()
+        game.Players:Chat(";gear all 12187348")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Ice Dragon Slayer",
+    Callback = function()
+        game.Players:Chat(";gear all 168141301")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Bloxy Cola",
+    Callback = function()
+        game.Players:Chat(";gear all 10472779")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Historic 'Timmy' Gun",
+    Callback = function()
+        game.Players:Chat(";gear all 116693764")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Teddy Bloxpin",
+    Callback = function()
+        game.Players:Chat(";gear all 12848902")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Rainbow Magic Carpet",
+    Callback = function()
+        game.Players:Chat(";gear all 225921000")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Body Swap Potion",
+    Callback = function()
+        game.Players:Chat(";gear all 78730532")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Fuse Bomb",
+    Callback = function()
+        game.Players:Chat(";gear all 11563251")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Ban Hammer",
+    Callback = function()
+        game.Players:Chat(";gear all 10468797")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Red Hyperlaser Gun",
+    Callback = function()
+        game.Players:Chat(";gear all 212296936")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Subspace Tripmine",
+    Callback = function()
+        game.Players:Chat(";gear all 11999247")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Attack Doge",
+    Callback = function()
+        game.Players:Chat(";gear all 257810065")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Rainbow Periastron Omega",
+    Callback = function()
+        game.Players:Chat(";gear all 159229806")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Godzilla Companion",
+    Callback = function()
+        game.Players:Chat(";gear all 3130875522")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Katana",
+    Callback = function()
+        game.Players:Chat(";gear all 11453385")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Torch",
+    Callback = function()
+        game.Players:Chat(";gear all 31839337")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Ultimate Drive Speedster",
+    Callback = function()
+        game.Players:Chat(";gear all 253519495")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Hyperlaser Gun",
+    Callback = function()
+        game.Players:Chat(";gear all 130113146")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all The Fiery Sun",
+    Callback = function()
+        game.Players:Chat(";gear all 83021250")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Moneybag",
+    Callback = function()
+        game.Players:Chat(";gear all 16722267")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Cheezburger",
+    Callback = function()
+        game.Players:Chat(";gear all 16726030")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all The General's .45",
+    Callback = function()
+        game.Players:Chat(";gear all 97885508")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Skeleton Scythe",
+    Callback = function()
+        game.Players:Chat(";gear all 95951330")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Sword of the Epicredness",
+    Callback = function()
+        game.Players:Chat(";gear all 409745306")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Kylo Ren’s Lightsaber",
+    Callback = function()
+        game.Players:Chat(";gear all 1208300505")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Scythe",
+    Callback = function()
+        game.Players:Chat(";gear all 28275809")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Flashbang",
+    Callback = function()
+        game.Players:Chat(";gear all 16979083")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Trench Warfare Shotgun",
+    Callback = function()
+        game.Players:Chat(";gear all 94233344")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Noir Periastron Psi",
+    Callback = function()
+        game.Players:Chat(";gear all 120307951")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Grapple Hook",
+    Callback = function()
+        game.Players:Chat(";gear all 30393548")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Azure Periastron Alpha",
+    Callback = function()
+        game.Players:Chat(";gear all 69499437")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Crimson Periastron Mu",
+    Callback = function()
+        game.Players:Chat(";gear all 99119240")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Dracovin Spell Book",
+    Callback = function()
+        game.Players:Chat(";gear all 49491736")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Ivory Periastron",
+    Callback = function()
+        game.Players:Chat(";gear all 108158379")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Dark Spellbook of the Forgotten",
+    Callback = function()
+        game.Players:Chat(";gear all 56561579")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Zombie Staff",
+    Callback = function()
+        game.Players:Chat(";gear all 26421972")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Pepperoni Pizza",
+    Callback = function()
+        game.Players:Chat(";gear all 22596452")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Crescendo, The Soul Stealer",
+    Callback = function()
+        game.Players:Chat(";gear all 94794774")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all BB-8",
+    Callback = function()
+        game.Players:Chat(";gear all 1183007014")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Snowball",
+    Callback = function()
+        game.Players:Chat(";gear all 19328185")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Golden Steampunk Gloves",
+    Callback = function()
+        game.Players:Chat(";gear all ")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Red Convertible",
+    Callback = function()
+        game.Players:Chat(";gear all 164207580")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Deluxe Rainbow Magic Carpet",
+    Callback = function()
+        game.Players:Chat(";gear all 477910063")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Sword of Darkness",
+    Callback = function()
+        game.Players:Chat(";gear all 77443491")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all R-80",
+    Callback = function()
+        game.Players:Chat(";gear all 12562495")
+    end    
+})
+
+Tab13:AddButton({
+    Name = "gear all Galactic Laser Gun",
+    Callback = function()
+        game.Players:Chat(";gear all 168143042")
     end    
 })
