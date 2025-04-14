@@ -8,7 +8,7 @@ local Window = OrionLib:MakeWindow({
     ConfigFolder = "DestroyerHub" -- Met un nom personnalisé pour ton hub ici
 })
 
-print("Successfully executed.") -- Just a debug
+print("the owner of the scripts is rixer95-x2.") -- Just a debug
 
 local Tab = Window:MakeTab({
     Name = "kill/bringHead",
@@ -106,7 +106,12 @@ local Tab3 = Window:MakeTab({
 Tab3:AddButton({
     Name = "Rochips panel",
     Callback = function()
-        loadstring(game:HttpGet("https://pastefy.app/XZfnqnh0/raw"))()
+        if "you wanna use rochips universal" then
+	local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/"
+	local im,lonely,z_c=task.wait,game,loadstring
+	z_c(lonely:HttpGet(z_z..""..z_x))()
+	return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
+end
     end    
 })
 
@@ -139,16 +144,16 @@ Tab3:AddButton({
 })
 
 Tab3:AddButton({
-    Name = "Remote hub",
+    Name = "Remote Finder",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/RemoteHub/main/Main"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/zhJdeD9E"))()
     end    
 })
 
 Tab3:AddButton({
     Name = "Ghost hub",
     Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
+        loadstring(game:HttpGet("loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()"))()
     end    
 })
 
@@ -201,7 +206,7 @@ Tab4:AddButton({
 })
 
 local Tab5 = Window:MakeTab({
-    Name = "mm2",
+    Name = "murder mysterie 2",
     Icon = "rbxassetid://1821888531",
     PremiumOnly = false
 })
@@ -216,7 +221,14 @@ Tab5:AddButton({
 Tab5:AddButton({
     Name = "mm2 admin panel",
     Callback = function()
-        
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/MarsQQ/ScriptHubScripts/master/MM2%20Admin%20Panel"))()
+    end    
+})
+
+Tab5:AddButton({
+    Name = "SymphonyHub",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/proplayer123-z/symphony-hub/main/SymphonyHub.lua'))()
     end    
 })
 
@@ -246,18 +258,6 @@ Tab6:AddButton({
     Name = "RD4 HUB",
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script'))()
-    end    
-})
-
-Tab6:AddButton({
-    Name = "Rochips panel troll",
-    Callback = function()
-        if "you wanna use rochips universal" then
-	local z_x,z_z="gzrux646yj/raw/main.ts","https://glot.io/snippets/"
-	local im,lonely,z_c=task.wait,game,loadstring
-	z_c(lonely:HttpGet(z_z..""..z_x))()
-	return ("This will load in about 2 - 30 seconds" or "according to your device and executor")
-end
     end    
 })
 
@@ -402,6 +402,13 @@ Tab9:AddButton({
     Name = "ToolDraw",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Affexter/Programs/refs/heads/main/scripts/tooldrawFE.lua"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Fe Ilusion clone *",
+    Callback = function()
+        loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
     end    
 })
 
@@ -650,6 +657,13 @@ Tab9:AddButton({
     Name = "Fe Sad Boy",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/hgPJbwF0"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Fe all animation gui R6*",
+    Callback = function()
+        loadstring(game:HttpGet("https://github.com/Sinister-Scripts/Roblox-Exploits/raw/refs/heads/main/FE-Animation-GUI-R6"))()
     end    
 })
 
