@@ -691,7 +691,7 @@ local Tab10 = Window:MakeTab({
 Tab10:AddButton({
     Name = "Best gui by me",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/UzaADbhs"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/w4PyLCty"))()
     end    
 })
 
