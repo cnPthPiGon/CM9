@@ -426,6 +426,12 @@ Tab9:AddButton({
     end    
 })
 
+Tab9:AddButton({
+    Name = "bring Part Fe",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/CM9/refs/heads/main/Bring%20Part%20And%20More"))()
+    end    
+})
 
 local Tab9 = Window:MakeTab({
     Name = "Animation Fe",
