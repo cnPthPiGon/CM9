@@ -802,6 +802,13 @@ end
     end    
 })
 
+Tab9:AddButton({
+    Name = "bring part by Arceus X",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))("More Scripts: t.me/arceusxscripts")
+    end    
+})
+
 local Tab9 = Window:MakeTab({
     Name = "Animation Fe",
     Icon = "rbxassetid://95593705",
