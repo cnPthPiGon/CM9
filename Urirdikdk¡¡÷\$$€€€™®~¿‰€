@@ -808,6 +808,13 @@ Tab9:AddButton({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))("More Scripts: t.me/arceusxscripts")
     end    
 })
+Tab9:AddButton({
+    Name = "auto wall hop",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/CM9/refs/heads/main/Wlhop.lua"))()
+    end    
+})
+
 
 local Tab9 = Window:MakeTab({
     Name = "Animation Fe",
