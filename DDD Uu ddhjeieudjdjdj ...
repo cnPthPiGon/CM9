@@ -1,0 +1,64 @@
+--Player lock aimbot
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local mouse = player:GetMouse()
+local userInputService = game:GetService("UserInputService")
+local runService = game:GetService("RunService")
+
+local maxDistance = 1000 -- Distance max pour détecter un joueur
+
+-- Fonction pour obtenir le joueur le plus proche
+local function getClosestPlayer()
+    local closestPlayer = nil
+    local closestDistance = maxDistance
+
+    for _, otherPlayer in pairs(game.Players:GetPlayers()) do
+        if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            local otherHumanoidRootPart = otherPlayer.Character.HumanoidRootPart
+            local distance = (humanoidRootPart.Position - otherHumanoidRootPart.Position).Magnitude
+            if distance < closestDistance then
+                closestPlayer = otherPlayer
+                closestDistance = distance
+            end
+        end
+    end
+
+    return closestPlayer
+end
+
+-- Fonction pour tourner la tête vers le joueur le plus proche
+local function aimAt(targetPlayer)
+    if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        local targetPosition = targetPlayer.Character.HumanoidRootPart.Position
+        local lookVector = (targetPosition - humanoidRootPart.Position).Unit
+        
+        -- Appliquer la rotation SANS modifier la position
+        humanoidRootPart.CFrame = CFrame.new(humanoidRootPart.Position, humanoidRootPart.Position + lookVector)
+    end
+end
+
+-- Fonction pour ajuster la trajectoire du tir
+local function forceHit()
+    local closestPlayer = getClosestPlayer()
+    if closestPlayer and closestPlayer.Character and closestPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        local targetPart = closestPlayer.Character.HumanoidRootPart
+        mouse.TargetFilter = workspace -- Ignore tous les obstacles
+        mouse.Hit = targetPart.CFrame -- Force la visée sur le joueur
+    end
+end
+
+-- Quand le joueur clique, il tire automatiquement sur l'ennemi
+userInputService.InputBegan:Connect(function(input, gameProcessed)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 and not gameProcessed then
+        forceHit() -- Cible et tire sur le joueur
+    end
+end)
+
+-- Mise à jour en temps réel pour viser l'ennemi le plus proche
+runService.RenderStepped:Connect(function()
+    local closestPlayer = getClosestPlayer()
+    if closestPlayer then
+        aimAt(closestPlayer) -- Regarde le joueur le plus proche
+    end
+end)
