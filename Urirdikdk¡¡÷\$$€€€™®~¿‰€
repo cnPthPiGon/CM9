@@ -815,6 +815,26 @@ Tab9:AddButton({
     end    
 })
 
+Tab9:AddButton({
+    Name = "Target Gui With Remote Event",
+    Callback = function()
+        loadstring(game:HttpGet("https://protected-roblox-scripts.onrender.com/b21ae403b94ba624665e25b0468030df"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Super Ring Part V3",
+    Callback = function()
+        loadstring(game:HttpGet("https://protected-roblox-scripts.onrender.com/a58bbcddf179c627b22eab93e3a95ffb"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Player Lock Universal",
+    Callback = function()
+        loadstring(game:HttpGet("https://protected-roblox-scripts.onrender.com/4b0ef829d88e76e4904fceb02f0fe030"))()
+    end    
+})
 
 local Tab9 = Window:MakeTab({
     Name = "Animation Fe",
