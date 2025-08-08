@@ -803,12 +803,6 @@ end
 })
 
 Tab9:AddButton({
-    Name = "bring part by Arceus X",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))("More Scripts: t.me/arceusxscripts")
-    end    
-})
-Tab9:AddButton({
     Name = "auto wall hop",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/CM9/refs/heads/main/Wlhop.lua"))()
@@ -819,13 +813,6 @@ Tab9:AddButton({
     Name = "Target Gui With Remote Event",
     Callback = function()
         loadstring(game:HttpGet("https://protected-roblox-scripts.onrender.com/b21ae403b94ba624665e25b0468030df"))()
-    end    
-})
-
-Tab9:AddButton({
-    Name = "Super Ring Part V3",
-    Callback = function()
-        loadstring(game:HttpGet("https://protected-roblox-scripts.onrender.com/a58bbcddf179c627b22eab93e3a95ffb"))()
     end    
 })
 
@@ -3014,5 +3001,34 @@ Tab14:AddButton({
     Name = "grab knife v4",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/retpirato/Roblox-Scripts/refs/heads/master/Grab%20Knife%20V4.lua"))()
+    end    
+})
+
+local Tab15 = Window:MakeTab({
+    Name = "Part Controller Best script",
+    Icon = "rbxassetid://1",
+    PremiumOnly = false
+})
+
+Tab15:AddButton({
+    Name = "Part Controller",
+    Callback = function()
+        pcall(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/PartController/refs/heads/main/PartController.lua", true))()
+end)
+    end    
+})
+
+Tab15:AddButton({
+    Name = "Super Ring Part V3",
+    Callback = function()
+       loadstring(game:HttpGet("https://protected-roblox-scripts.onrender.com/a58bbcddf179c627b22eab93e3a95ffb"))() 
+    end    
+})
+
+Tab15:AddButton({
+    Name = "bring part by Arceus X",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))("More Scripts: t.me/arceusxscripts")
     end    
 })
