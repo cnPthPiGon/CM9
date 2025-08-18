@@ -3032,3 +3032,10 @@ Tab15:AddButton({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))("More Scripts: t.me/arceusxscripts")
     end    
 })
+
+Tab15:AddButton({
+    Name = "Telekinesis V5",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fe-Telekinesis-V5-21542"))()
+    end    
+})
