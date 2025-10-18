@@ -1,4 +1,4 @@
--- Destroyers X Hub Library v3 (Finale avec logos fixes)
+-- Rixer X Library V2
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
