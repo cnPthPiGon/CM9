@@ -1,4 +1,4 @@
--- Destroyers X Hub Library v2 (minimize corrige)
+-- Destroyers X Hub Library v3 (Version améliorée avec minimisation fluide)
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
@@ -18,10 +18,7 @@ local Theme = {
     Button = Color3.fromRGB(50,50,50),
     ButtonHover = Color3.fromRGB(70,70,70),
     Stroke = Color3.fromRGB(30,30,30),
-    Corner = 12,
-    HeaderHeight = 50,
-    MinimizedWidth = 220, -- largeur quand minimisé (modifiable)
-    MinimizedHeight = 50  -- hauteur quand minimisé (doit correspondre au header)
+    Corner = 12
 }
 
 local function new(class, props)
@@ -40,7 +37,7 @@ local function createScreenGui(name)
     return sg
 end
 
--- Son de clic universel (garde le son en SoundService)
+-- Son clic
 local clickSound = new("Sound", {Parent = SoundService, SoundId = "rbxassetid://2101148", Volume = 1})
 
 function Library:MakeWindow(opts)
@@ -58,39 +55,12 @@ function Library:MakeWindow(opts)
     })
     new("UICorner", {CornerRadius = UDim.new(0, Theme.Corner), Parent = main})
 
-    local gradient = new("UIGradient", {Parent = main})
-    gradient.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0, Theme.Background:Lerp(Theme.Panel,0.08)),
-        ColorSequenceKeypoint.new(1, Theme.Background)
-    }
-    gradient.Rotation = 90
-
     local header = new("Frame", {
         Name = "Header",
-        Size = UDim2.new(1,0,0,Theme.HeaderHeight),
+        Size = UDim2.new(1,0,0,50),
         BackgroundTransparency = 1,
         Parent = main
     })
-
-    -- Logo du joueur local (centré dans le header)
-    local playerLogoFrame = new("Frame", {
-        Name = "PlayerLogoFrame",
-        Size = UDim2.new(0,36,0,36),
-        Position = UDim2.new(0.5,-18,0.5,-18),
-        BackgroundColor3 = Theme.Panel,
-        Parent = header
-    })
-    new("UICorner",{CornerRadius=UDim.new(0,18),Parent=playerLogoFrame})
-
-    local playerLogo = new("ImageLabel", {
-        Name = "PlayerLogo",
-        Size = UDim2.new(1, -4,1,-4),
-        Position = UDim2.new(0,2,0,2),
-        BackgroundTransparency = 1,
-        Image = "rbxthumb://type=AvatarHeadShot&id="..LocalPlayer.UserId.."&w=420&h=420",
-        Parent = playerLogoFrame
-    })
-    new("UICorner",{CornerRadius=UDim.new(0,16),Parent=playerLogo})
 
     local title = new("TextLabel", {
         Name = "Title",
@@ -133,8 +103,8 @@ function Library:MakeWindow(opts)
 
     local content = new("Frame", {
         Name = "Content",
-        Position = UDim2.new(0,12,0,Theme.HeaderHeight + 10),
-        Size = UDim2.new(1,-24,1, - (Theme.HeaderHeight + 18)),
+        Position = UDim2.new(0,12,0,60),
+        Size = UDim2.new(1,-24,1,-72),
         BackgroundTransparency = 1,
         Parent = main
     })
@@ -161,11 +131,7 @@ function Library:MakeWindow(opts)
     new("UICorner", {CornerRadius=UDim.new(0,8), Parent=pages})
     local pagesLayout = new("UIListLayout", {Parent=pages, SortOrder=Enum.SortOrder.LayoutOrder, Padding=UDim.new(0,8)})
 
-    -- sauvegarder taille/position initiales pour restore
-    local originalSize = main.Size
-    local originalPosition = main.Position
-
-    -- drag mobile/pc (inchangé)
+    -- drag window
     do
         local dragging, dragInput, dragStart, startPos
         local function update(input)
@@ -203,46 +169,42 @@ function Library:MakeWindow(opts)
     Window._tabsColumn = tabsColumn
     Window._pages = pages
 
+    -- Nouveau système de minimisation
     local minimized = false
-
-    -- Fonction pour basculer minimize / restore avec animation propre
-    local function setMinimized(state)
-        if state == minimized then return end
-        minimized = state
-        clickSound:Play()
-        if minimized then
-            -- Animator: réduire la fenêtre et masquer le contenu (animation fluide)
-            local targetSize = UDim2.new(0, Theme.MinimizedWidth, 0, Theme.MinimizedHeight)
-            local targetPos = UDim2.new(0.5, -Theme.MinimizedWidth/2, 0.5, -Theme.MinimizedHeight/2)
-            -- Masquer progressivement le contenu (fade + visible=false après)
-            local fadeTween = TweenService:Create(content, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(1,-24,0,0)})
-            fadeTween:Play()
-            fadeTween.Completed:Wait()
-            content.Visible = false
-            tabsColumn.Visible = false
-            pages.Visible = false
-            playerLogoFrame.Visible = false
-            title.Visible = false
-            -- réduire le main
-            TweenService:Create(main, TweenInfo.new(0.22, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = targetSize, Position = targetPos}):Play()
-        else
-            -- Restore: agrandir la fenêtre et réafficher le contenu
-            content.Visible = true
-            tabsColumn.Visible = true
-            pages.Visible = true
-            playerLogoFrame.Visible = true
-            title.Visible = true
-            -- Animer la taille et la position vers l'original
-            TweenService:Create(main, TweenInfo.new(0.22, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = originalSize, Position = originalPosition}):Play()
-            -- revenir la taille du content progressivement
-            delay(0.18, function()
-                TweenService:Create(content, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(1,-24,1, - (Theme.HeaderHeight + 18))}):Play()
-            end)
-        end
-    end
+    local savedSize = main.Size
+    local savedPos = main.Position
 
     toggleBtn.MouseButton1Click:Connect(function()
-        setMinimized(not minimized)
+        clickSound:Play()
+        minimized = not minimized
+
+        if minimized then
+            -- Cache le contenu et réduit la fenêtre
+            for _,obj in ipairs(content:GetChildren()) do
+                if obj:IsA("Frame") or obj:IsA("ScrollingFrame") then
+                    TweenService:Create(obj, TweenInfo.new(0.2), {Transparency = 1}):Play()
+                end
+            end
+
+            TweenService:Create(main, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
+                Size = UDim2.new(0, Theme.WindowWidth, 0, 60)
+            }):Play()
+
+            task.wait(0.3)
+            content.Visible = false
+
+        else
+            content.Visible = true
+            TweenService:Create(main, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
+                Size = savedSize
+            }):Play()
+
+            for _,obj in ipairs(content:GetChildren()) do
+                if obj:IsA("Frame") or obj:IsA("ScrollingFrame") then
+                    TweenService:Create(obj, TweenInfo.new(0.25), {Transparency = 0}):Play()
+                end
+            end
+        end
     end)
 
     closeBtn.MouseButton1Click:Connect(function()
@@ -282,18 +244,17 @@ function Library:MakeWindow(opts)
         local function activate()
             clickSound:Play()
             for _,t in pairs(Window._tabs) do
-                t.Page.Visible = false
-                t.Button.BackgroundColor3 = Theme.Button
+                t.Page.Visible=false
+                t.Button.BackgroundColor3=Theme.Button
             end
-            page.Visible = true
-            tabBtn.BackgroundColor3 = Theme.Accent
-            Window._active = tabObj
+            page.Visible=true
+            tabBtn.BackgroundColor3=Theme.Accent
+            Window._active=tabObj
         end
 
-        if #Window._tabs == 0 then activate() else page.Visible = false end
+        if #Window._tabs==0 then activate() else page.Visible=false end
         tabBtn.MouseButton1Click:Connect(activate)
 
-        -- Fonction pour ajouter des boutons dans la tab
         function tabObj:AddButton(opts)
             opts = opts or {}
             local btn = new("TextButton",{
@@ -301,16 +262,23 @@ function Library:MakeWindow(opts)
                 Size=UDim2.new(1,-16,0,42),
                 BackgroundColor3=Theme.Button,
                 BorderSizePixel=0,
+                Text="",
+                Parent=page
+            })
+            new("UICorner",{CornerRadius=UDim.new(0,8),Parent=btn})
+
+            local label = new("TextLabel",{
+                Name="Label",
                 Text=opts.Name or "Button",
                 TextColor3=Theme.Text,
                 Font=Enum.Font.Gotham,
                 TextSize=14,
-                Parent=page
+                BackgroundTransparency=1,
+                Position=UDim2.new(0,10,0,0),
+                Size=UDim2.new(1,-10,1,0),
+                TextXAlignment=Enum.TextXAlignment.Left,
+                Parent=btn
             })
-            new("UICorner",{CornerRadius=UDim.new(0,8),Parent=btn})
-            local g=new("UIGradient",{Parent=btn})
-            g.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Theme.Button:Lerp(Theme.ButtonHover,0.06)),ColorSequenceKeypoint.new(1,Theme.Button)})
-            g.Rotation=90
 
             btn.MouseEnter:Connect(function()
                 TweenService:Create(btn,TweenInfo.new(0.12,Enum.EasingStyle.Quad),{BackgroundColor3=Theme.ButtonHover}):Play()
@@ -321,11 +289,6 @@ function Library:MakeWindow(opts)
             btn.MouseButton1Click:Connect(function()
                 clickSound:Play()
                 pcall(function()
-                    local orig = btn.BackgroundColor3
-                    TweenService:Create(btn,TweenInfo.new(0.06),{BackgroundColor3=Theme.Accent}):Play()
-                    delay(0.08,function()
-                        if btn and btn.Parent then btn.BackgroundColor3 = orig end
-                    end)
                     if opts.Callback then opts.Callback() end
                 end)
             end)
