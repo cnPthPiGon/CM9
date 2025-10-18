@@ -37,14 +37,11 @@ local function createScreenGui(name)
     return sg
 end
 
-local clickSound = new("Sound", {Parent = SoundService, SoundId = "rbxassetid://9468220156", Volume = 5})
+local clickSound = new("Sound", {Parent = SoundService, SoundId = "rbxassetid://2101148", Volume = 1})
 
 function Library:MakeWindow(opts)
     opts = opts or {}
     local name = opts.Name or "Destroyers X Hub"
-    local hidePremium = opts.HidePremium or false
-    local saveConfig = opts.SaveConfig or false
-    local configFolder = opts.ConfigFolder or "DestroyersHub"
 
     local screenGui = createScreenGui("DestroyersXHub")
     local main = new("Frame", {
@@ -77,12 +74,11 @@ function Library:MakeWindow(opts)
         Parent = header
     })
 
-    -- Logo avatar dynamique en haut
-    local logo = new("ImageLabel", {
-        Name = "LogoAvatar",
-        Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..LocalPlayer.UserId.."&width=420&height=420&format=png",
+    local avatarLogo = new("ImageLabel", {
+        Name = "AvatarLogo",
+        Image = "rbxthumb://type=AvatarHeadShot&id="..LocalPlayer.UserId.."&w=420&h=420",
         BackgroundTransparency = 1,
-        Size = UDim2.new(0, 36, 0, 36),
+        Size = UDim2.new(0,36,0,36),
         Position = UDim2.new(0.5, -18, 0.5, -18),
         Parent = header
     })
@@ -127,11 +123,14 @@ function Library:MakeWindow(opts)
         BackgroundColor3 = Theme.Panel,
         BorderSizePixel = 0,
         ScrollBarThickness = 6,
+        ScrollBarImageColor3 = Theme.Accent,
+        Active = true,
+        ScrollBarInset = Enum.ScrollBarInset.Always,
         Parent = content
     })
     new("UICorner", {CornerRadius=UDim.new(0,8), Parent=tabsColumn})
-    new("UIListLayout",{Parent=tabsColumn, SortOrder=Enum.SortOrder.LayoutOrder, Padding=UDim.new(0,8)})
-
+    local tabsLayout = new("UIListLayout", {Parent=tabsColumn, SortOrder=Enum.SortOrder.LayoutOrder, Padding=UDim.new(0,8)})
+    
     local pages = new("Frame", {
         Name = "Pages",
         Position = UDim2.new(0,156,0,0),
@@ -141,9 +140,7 @@ function Library:MakeWindow(opts)
         Parent = content
     })
     new("UICorner", {CornerRadius=UDim.new(0,8), Parent=pages})
-    new("UIListLayout",{Parent=pages, SortOrder=Enum.SortOrder.LayoutOrder, Padding=UDim.new(0,8)})
 
-    -- Drag window
     do
         local dragging, dragInput, dragStart, startPos
         local function update(input)
@@ -180,11 +177,10 @@ function Library:MakeWindow(opts)
     Window._content = content
     Window._tabsColumn = tabsColumn
     Window._pages = pages
-    Window._options = {HidePremium = hidePremium, SaveConfig = saveConfig, ConfigFolder = configFolder}
 
-    -- Minimisation
     local minimized = false
     local savedSize = main.Size
+
     toggleBtn.MouseButton1Click:Connect(function()
         clickSound:Play()
         minimized = not minimized
@@ -213,13 +209,9 @@ function Library:MakeWindow(opts)
         screenGui:Destroy()
     end)
 
-    -- MakeTab
     function Window:MakeTab(tabInfo)
         tabInfo = tabInfo or {}
         local tabName = tabInfo.Name or "Tab"
-        local tabIcon = tabInfo.Icon or ""
-        local premiumOnly = tabInfo.PremiumOnly or false
-
         local tabBtn = new("TextButton", {
             Name = "TabBtn_"..tabName,
             Size = UDim2.new(1,-16,0,44),
@@ -233,29 +225,22 @@ function Library:MakeWindow(opts)
         })
         new("UICorner",{CornerRadius=UDim.new(0,8),Parent=tabBtn})
 
-        if tabIcon ~= "" then
-            local icon = new("ImageLabel", {
-                Name="Icon",
-                Image=tabIcon,
-                BackgroundTransparency=1,
-                Size=UDim2.new(0,24,0,24),
-                Position=UDim2.new(0,10,0.5,-12),
-                Parent=tabBtn
-            })
-        end
-
         local page = new("ScrollingFrame",{
             Name = "Page_"..tabName,
             Size=UDim2.new(1,-16,1,0),
             Position=UDim2.new(0,8,0,0),
             BackgroundTransparency=1,
             Parent=pages,
-            ScrollBarThickness=6
+            ScrollBarThickness = 6,
+            Active = true,
+            ScrollBarInset = Enum.ScrollBarInset.Always,
+            AutomaticCanvasSize = Enum.AutomaticSize.Y,
+            ScrollBarImageColor3 = Theme.Accent
         })
-        page.AutomaticCanvasSize=Enum.AutomaticSize.Y
-        new("UIListLayout",{Parent=page, SortOrder=Enum.SortOrder.LayoutOrder, Padding=UDim.new(0,8)})
+        local pageLayout = new("UIListLayout",{Parent=page,SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,8)})
+        page.UIListLayout = pageLayout
 
-        local tabObj = {Name=tabName,Button=tabBtn,Page=page,Elements={},PremiumOnly=premiumOnly}
+        local tabObj = {Name=tabName,Button=tabBtn,Page=page,Elements={}}
 
         local function activate()
             clickSound:Play()
@@ -279,11 +264,11 @@ function Library:MakeWindow(opts)
                 BackgroundColor3=Theme.Button,
                 BorderSizePixel=0,
                 Text="",
-                Parent=page
+                Parent=page,
+                AutoButtonColor = false
             })
             new("UICorner",{CornerRadius=UDim.new(0,8),Parent=btn})
 
-            -- Logo fixe sur tous les boutons
             local icon = new("ImageLabel",{
                 Name="Icon",
                 Image="rbxassetid://9468220156",
@@ -301,7 +286,7 @@ function Library:MakeWindow(opts)
                 TextSize=14,
                 BackgroundTransparency=1,
                 Position=UDim2.new(0,40,0,0),
-                Size=UDim2.new(1,-40,1,0),
+                Size=UDim2.new(1,-50,1,0),
                 TextXAlignment=Enum.TextXAlignment.Left,
                 Parent=btn
             })
