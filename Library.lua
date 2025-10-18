@@ -1,4 +1,4 @@
--- Destroyers X Hub Library v3 (Version améliorée avec minimisation fluide)
+-- Destroyers X Hub Library v3 (Finale avec logos fixes)
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
@@ -37,12 +37,14 @@ local function createScreenGui(name)
     return sg
 end
 
--- Son clic
-local clickSound = new("Sound", {Parent = SoundService, SoundId = "rbxassetid://2101148", Volume = 1})
+local clickSound = new("Sound", {Parent = SoundService, SoundId = "rbxassetid://9468220156", Volume = 5})
 
 function Library:MakeWindow(opts)
     opts = opts or {}
     local name = opts.Name or "Destroyers X Hub"
+    local hidePremium = opts.HidePremium or false
+    local saveConfig = opts.SaveConfig or false
+    local configFolder = opts.ConfigFolder or "DestroyersHub"
 
     local screenGui = createScreenGui("DestroyersXHub")
     local main = new("Frame", {
@@ -72,6 +74,16 @@ function Library:MakeWindow(opts)
         Position = UDim2.new(0,12,0,0),
         Size = UDim2.new(0.8,0,1,0),
         TextXAlignment = Enum.TextXAlignment.Left,
+        Parent = header
+    })
+
+    -- Logo avatar dynamique en haut
+    local logo = new("ImageLabel", {
+        Name = "LogoAvatar",
+        Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..LocalPlayer.UserId.."&width=420&height=420&format=png",
+        BackgroundTransparency = 1,
+        Size = UDim2.new(0, 36, 0, 36),
+        Position = UDim2.new(0.5, -18, 0.5, -18),
         Parent = header
     })
 
@@ -118,7 +130,7 @@ function Library:MakeWindow(opts)
         Parent = content
     })
     new("UICorner", {CornerRadius=UDim.new(0,8), Parent=tabsColumn})
-    local tabsLayout = new("UIListLayout", {Parent=tabsColumn, SortOrder=Enum.SortOrder.LayoutOrder, Padding=UDim.new(0,8)})
+    new("UIListLayout",{Parent=tabsColumn, SortOrder=Enum.SortOrder.LayoutOrder, Padding=UDim.new(0,8)})
 
     local pages = new("Frame", {
         Name = "Pages",
@@ -129,9 +141,9 @@ function Library:MakeWindow(opts)
         Parent = content
     })
     new("UICorner", {CornerRadius=UDim.new(0,8), Parent=pages})
-    local pagesLayout = new("UIListLayout", {Parent=pages, SortOrder=Enum.SortOrder.LayoutOrder, Padding=UDim.new(0,8)})
+    new("UIListLayout",{Parent=pages, SortOrder=Enum.SortOrder.LayoutOrder, Padding=UDim.new(0,8)})
 
-    -- drag window
+    -- Drag window
     do
         local dragging, dragInput, dragStart, startPos
         local function update(input)
@@ -168,37 +180,26 @@ function Library:MakeWindow(opts)
     Window._content = content
     Window._tabsColumn = tabsColumn
     Window._pages = pages
+    Window._options = {HidePremium = hidePremium, SaveConfig = saveConfig, ConfigFolder = configFolder}
 
-    -- Nouveau système de minimisation
+    -- Minimisation
     local minimized = false
     local savedSize = main.Size
-    local savedPos = main.Position
-
     toggleBtn.MouseButton1Click:Connect(function()
         clickSound:Play()
         minimized = not minimized
-
         if minimized then
-            -- Cache le contenu et réduit la fenêtre
             for _,obj in ipairs(content:GetChildren()) do
                 if obj:IsA("Frame") or obj:IsA("ScrollingFrame") then
                     TweenService:Create(obj, TweenInfo.new(0.2), {Transparency = 1}):Play()
                 end
             end
-
-            TweenService:Create(main, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
-                Size = UDim2.new(0, Theme.WindowWidth, 0, 60)
-            }):Play()
-
+            TweenService:Create(main, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {Size = UDim2.new(0, Theme.WindowWidth, 0, 60)}):Play()
             task.wait(0.3)
             content.Visible = false
-
         else
             content.Visible = true
-            TweenService:Create(main, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
-                Size = savedSize
-            }):Play()
-
+            TweenService:Create(main, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {Size = savedSize}):Play()
             for _,obj in ipairs(content:GetChildren()) do
                 if obj:IsA("Frame") or obj:IsA("ScrollingFrame") then
                     TweenService:Create(obj, TweenInfo.new(0.25), {Transparency = 0}):Play()
@@ -212,9 +213,13 @@ function Library:MakeWindow(opts)
         screenGui:Destroy()
     end)
 
+    -- MakeTab
     function Window:MakeTab(tabInfo)
         tabInfo = tabInfo or {}
         local tabName = tabInfo.Name or "Tab"
+        local tabIcon = tabInfo.Icon or ""
+        local premiumOnly = tabInfo.PremiumOnly or false
+
         local tabBtn = new("TextButton", {
             Name = "TabBtn_"..tabName,
             Size = UDim2.new(1,-16,0,44),
@@ -228,6 +233,17 @@ function Library:MakeWindow(opts)
         })
         new("UICorner",{CornerRadius=UDim.new(0,8),Parent=tabBtn})
 
+        if tabIcon ~= "" then
+            local icon = new("ImageLabel", {
+                Name="Icon",
+                Image=tabIcon,
+                BackgroundTransparency=1,
+                Size=UDim2.new(0,24,0,24),
+                Position=UDim2.new(0,10,0.5,-12),
+                Parent=tabBtn
+            })
+        end
+
         local page = new("ScrollingFrame",{
             Name = "Page_"..tabName,
             Size=UDim2.new(1,-16,1,0),
@@ -237,9 +253,9 @@ function Library:MakeWindow(opts)
             ScrollBarThickness=6
         })
         page.AutomaticCanvasSize=Enum.AutomaticSize.Y
-        local pageLayout = new("UIListLayout",{Parent=page,SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,8)})
+        new("UIListLayout",{Parent=page, SortOrder=Enum.SortOrder.LayoutOrder, Padding=UDim.new(0,8)})
 
-        local tabObj = {Name=tabName,Button=tabBtn,Page=page,Elements={}}
+        local tabObj = {Name=tabName,Button=tabBtn,Page=page,Elements={},PremiumOnly=premiumOnly}
 
         local function activate()
             clickSound:Play()
@@ -267,6 +283,16 @@ function Library:MakeWindow(opts)
             })
             new("UICorner",{CornerRadius=UDim.new(0,8),Parent=btn})
 
+            -- Logo fixe sur tous les boutons
+            local icon = new("ImageLabel",{
+                Name="Icon",
+                Image="rbxassetid://9468220156",
+                BackgroundTransparency=1,
+                Size=UDim2.new(0,24,0,24),
+                Position=UDim2.new(0,10,0.5,-12),
+                Parent=btn
+            })
+
             local label = new("TextLabel",{
                 Name="Label",
                 Text=opts.Name or "Button",
@@ -274,8 +300,8 @@ function Library:MakeWindow(opts)
                 Font=Enum.Font.Gotham,
                 TextSize=14,
                 BackgroundTransparency=1,
-                Position=UDim2.new(0,10,0,0),
-                Size=UDim2.new(1,-10,1,0),
+                Position=UDim2.new(0,40,0,0),
+                Size=UDim2.new(1,-40,1,0),
                 TextXAlignment=Enum.TextXAlignment.Left,
                 Parent=btn
             })
