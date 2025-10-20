@@ -1,13 +1,13 @@
-local RixerLibrary = loadstring(game:HttpGet(('https://pastefy.app/HUF6h0Hr/raw')))()
+local RixerLibrary = loadstring(game:HttpGet(('https://raw.githubusercontent.com/cnPthPiGon/CM9/refs/heads/main/Library.lua')))()
 
 local Window = RixerLibrary:MakeWindow({
     Name = "Destroyer hub",
     HidePremium = false,
     SaveConfig = true,
-    ConfigFolder = "DestroyerHub" -- Met un nom personnalisé pour ton hub ici
+    ConfigFolder = "DestroyerHub"
 })
 
-print("the owner of the scripts is rixer95-x2 in youtube.") -- Just a debug
+print("the owner of the scripts is rixer95-x2 in youtube.")
 
 local Tab = Window:MakeTab({
     Name = "kill/bringHead",
