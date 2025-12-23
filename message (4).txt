@@ -1,0 +1,848 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
+
+-- Instances: 43 | Scripts: 11 | Modules: 0 | Tags: 0
+local G2L = {};
+
+-- StarterGui.uhh
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["IgnoreGuiInset"] = true;
+G2L["1"]["DisplayOrder"] = 2147483647;
+G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
+G2L["1"]["Name"] = [[uhh]];
+G2L["1"]["ResetOnSpawn"] = false;
+
+
+-- StarterGui.uhh.main
+G2L["2"] = Instance.new("Frame", G2L["1"]);
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(27, 27, 27);
+G2L["2"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["2"]["Size"] = UDim2.new(0, 450, 0, 200);
+G2L["2"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Name"] = [[main]];
+
+
+-- StarterGui.uhh.main.corner
+G2L["3"] = Instance.new("UICorner", G2L["2"]);
+G2L["3"]["Name"] = [[corner]];
+G2L["3"]["CornerRadius"] = UDim.new(0, 10);
+
+
+-- StarterGui.uhh.main.drag
+G2L["4"] = Instance.new("LocalScript", G2L["2"]);
+G2L["4"]["Name"] = [[drag]];
+
+
+-- StarterGui.uhh.main.title
+G2L["5"] = Instance.new("TextLabel", G2L["2"]);
+G2L["5"]["BorderSizePixel"] = 0;
+G2L["5"]["TextSize"] = 14;
+G2L["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Italic);
+G2L["5"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5"]["BackgroundTransparency"] = 1;
+G2L["5"]["Size"] = UDim2.new(1, 0, 0, 30);
+G2L["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5"]["Text"] = [[FE Bypass (By saji)]];
+G2L["5"]["Name"] = [[title]];
+
+
+-- StarterGui.uhh.main.close
+G2L["6"] = Instance.new("Frame", G2L["2"]);
+G2L["6"]["BorderSizePixel"] = 0;
+G2L["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["6"]["Size"] = UDim2.new(0, 25, 0, 25);
+G2L["6"]["Position"] = UDim2.new(1, -30, 0, 5);
+G2L["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["6"]["Name"] = [[close]];
+G2L["6"]["BackgroundTransparency"] = 0.75;
+
+
+-- StarterGui.uhh.main.close.corner
+G2L["7"] = Instance.new("UICorner", G2L["6"]);
+G2L["7"]["Name"] = [[corner]];
+
+
+-- StarterGui.uhh.main.close.img
+G2L["8"] = Instance.new("ImageLabel", G2L["6"]);
+G2L["8"]["BorderSizePixel"] = 0;
+G2L["8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+-- [ERROR] cannot convert ImageContent, please report to "https://github.com/uniquadev/GuiToLuaConverter/issues"
+G2L["8"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["8"]["Image"] = [[rbxassetid://11293981586]];
+G2L["8"]["Size"] = UDim2.new(0.75, 0, 0.75, 0);
+G2L["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["8"]["BackgroundTransparency"] = 1;
+G2L["8"]["Name"] = [[img]];
+G2L["8"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+
+
+-- StarterGui.uhh.main.close.color
+G2L["9"] = Instance.new("LocalScript", G2L["6"]);
+G2L["9"]["Name"] = [[color]];
+
+
+-- StarterGui.uhh.main.close.detect
+G2L["a"] = Instance.new("TextButton", G2L["6"]);
+G2L["a"]["BorderSizePixel"] = 0;
+G2L["a"]["TextSize"] = 14;
+G2L["a"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["a"]["BackgroundTransparency"] = 1;
+G2L["a"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a"]["Text"] = [[]];
+G2L["a"]["Name"] = [[detect]];
+
+
+-- StarterGui.uhh.main.close.detect.corner
+G2L["b"] = Instance.new("UICorner", G2L["a"]);
+G2L["b"]["Name"] = [[corner]];
+
+
+-- StarterGui.uhh.main.toggle
+G2L["c"] = Instance.new("LocalScript", G2L["2"]);
+G2L["c"]["Name"] = [[toggle]];
+
+
+-- StarterGui.uhh.main.FastColoredTextbox
+G2L["d"] = Instance.new("Frame", G2L["2"]);
+G2L["d"]["BackgroundColor3"] = Color3.fromRGB(180, 180, 180);
+G2L["d"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["d"]["Size"] = UDim2.new(0.95, 0, 0.5, 0);
+G2L["d"]["Position"] = UDim2.new(0.5, 0, 0.45, 0);
+G2L["d"]["BorderColor3"] = Color3.fromRGB(169, 169, 169);
+G2L["d"]["Name"] = [[FastColoredTextbox]];
+G2L["d"]["BackgroundTransparency"] = 0.75;
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll
+G2L["e"] = Instance.new("ScrollingFrame", G2L["d"]);
+G2L["e"]["Active"] = true;
+G2L["e"]["ZIndex"] = 2;
+G2L["e"]["BorderSizePixel"] = 0;
+G2L["e"]["CanvasSize"] = UDim2.new(0, 0, 0, 0);
+G2L["e"]["TopImage"] = [[rbxasset://textures/ui/Scroll/scroll-middle.png]];
+G2L["e"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 42);
+G2L["e"]["Name"] = [[Scroll]];
+G2L["e"]["BottomImage"] = [[rbxasset://textures/ui/Scroll/scroll-middle.png]];
+G2L["e"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["e"]["ScrollBarImageColor3"] = Color3.fromRGB(80, 80, 80);
+G2L["e"]["BorderColor3"] = Color3.fromRGB(57, 57, 57);
+G2L["e"]["ScrollBarThickness"] = 16;
+G2L["e"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.TextBox
+G2L["f"] = Instance.new("TextBox", G2L["e"]);
+G2L["f"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["f"]["BorderSizePixel"] = 0;
+G2L["f"]["TextWrapped"] = true;
+G2L["f"]["TextTransparency"] = 0.75;
+G2L["f"]["TextSize"] = 15;
+G2L["f"]["TextColor3"] = Color3.fromRGB(42, 42, 42);
+G2L["f"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+G2L["f"]["BackgroundColor3"] = Color3.fromRGB(29, 35, 46);
+G2L["f"]["RichText"] = true;
+G2L["f"]["FontFace"] = Font.new([[rbxasset://fonts/families/Inconsolata.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["f"]["MultiLine"] = true;
+G2L["f"]["ClearTextOnFocus"] = false;
+G2L["f"]["Size"] = UDim2.new(10, -27, 1, 0);
+G2L["f"]["Position"] = UDim2.new(0, 20, 0, 0);
+G2L["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["f"]["Text"] = [[]];
+G2L["f"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.TextBox.LineChecker
+G2L["10"] = Instance.new("LocalScript", G2L["f"]);
+G2L["10"]["Name"] = [[LineChecker]];
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.LinesFrame
+G2L["11"] = Instance.new("Frame", G2L["e"]);
+G2L["11"]["BorderSizePixel"] = 0;
+G2L["11"]["BackgroundColor3"] = Color3.fromRGB(34, 34, 34);
+G2L["11"]["Size"] = UDim2.new(0, 20, 17.91826, 0);
+G2L["11"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["11"]["Name"] = [[LinesFrame]];
+G2L["11"]["BackgroundTransparency"] = 0.75;
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.LinesFrame.TextLabelTemplate
+G2L["12"] = Instance.new("TextLabel", G2L["11"]);
+G2L["12"]["TextWrapped"] = true;
+G2L["12"]["BorderSizePixel"] = 0;
+G2L["12"]["TextSize"] = 15;
+G2L["12"]["TextScaled"] = true;
+G2L["12"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["12"]["FontFace"] = Font.new([[rbxasset://fonts/families/Inconsolata.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["12"]["TextColor3"] = Color3.fromRGB(205, 205, 205);
+G2L["12"]["BackgroundTransparency"] = 1;
+G2L["12"]["Size"] = UDim2.new(0, 20, 0, 15);
+G2L["12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["12"]["Text"] = [[1]];
+G2L["12"]["Name"] = [[TextLabelTemplate]];
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.LinesFrame.UIListLayout
+G2L["13"] = Instance.new("UIListLayout", G2L["11"]);
+G2L["13"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.LinesValue
+G2L["14"] = Instance.new("NumberValue", G2L["e"]);
+G2L["14"]["Name"] = [[LinesValue]];
+G2L["14"]["Value"] = 1;
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.Lines
+G2L["15"] = Instance.new("LocalScript", G2L["e"]);
+G2L["15"]["Name"] = [[Lines]];
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.Highlighting
+G2L["16"] = Instance.new("TextLabel", G2L["e"]);
+G2L["16"]["TextWrapped"] = true;
+G2L["16"]["BorderSizePixel"] = 0;
+G2L["16"]["TextSize"] = 15;
+G2L["16"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["16"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+G2L["16"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["16"]["FontFace"] = Font.new([[rbxasset://fonts/families/Inconsolata.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["16"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["16"]["BackgroundTransparency"] = 1;
+G2L["16"]["RichText"] = true;
+G2L["16"]["Size"] = UDim2.new(10, -27, 1, 0);
+G2L["16"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["16"]["Text"] = [[]];
+G2L["16"]["Name"] = [[Highlighting]];
+G2L["16"]["Position"] = UDim2.new(0, 20, 0, 0);
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.Syntax
+G2L["17"] = Instance.new("LocalScript", G2L["e"]);
+G2L["17"]["Name"] = [[Syntax]];
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.LineSelector
+G2L["18"] = Instance.new("Frame", G2L["e"]);
+G2L["18"]["BorderSizePixel"] = 0;
+G2L["18"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["18"]["Size"] = UDim2.new(1, 0, 0, 15);
+G2L["18"]["Position"] = UDim2.new(0, 20, 0, 0);
+G2L["18"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["18"]["Name"] = [[LineSelector]];
+G2L["18"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.Selector
+G2L["19"] = Instance.new("LocalScript", G2L["e"]);
+G2L["19"]["Name"] = [[Selector]];
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.Cursor
+G2L["1a"] = Instance.new("Frame", G2L["e"]);
+G2L["1a"]["BorderSizePixel"] = 0;
+G2L["1a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1a"]["Size"] = UDim2.new(0, 1, 0, 15);
+G2L["1a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1a"]["Name"] = [[Cursor]];
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.CursorScript
+G2L["1b"] = Instance.new("LocalScript", G2L["e"]);
+G2L["1b"]["Name"] = [[CursorScript]];
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.TextMeasurer
+G2L["1c"] = Instance.new("TextLabel", G2L["e"]);
+G2L["1c"]["BorderSizePixel"] = 0;
+G2L["1c"]["TextSize"] = 15;
+G2L["1c"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["1c"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+G2L["1c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1c"]["FontFace"] = Font.new([[rbxasset://fonts/families/Inconsolata.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["1c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1c"]["BackgroundTransparency"] = 1;
+G2L["1c"]["RichText"] = true;
+G2L["1c"]["Size"] = UDim2.new(10, -27, 1, 0);
+G2L["1c"]["Visible"] = false;
+G2L["1c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1c"]["Text"] = [[]];
+G2L["1c"]["Name"] = [[TextMeasurer]];
+G2L["1c"]["Position"] = UDim2.new(0, 20, 0, 0);
+
+
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.AutomaticScrollBarSize
+G2L["1d"] = Instance.new("LocalScript", G2L["e"]);
+G2L["1d"]["Name"] = [[AutomaticScrollBarSize]];
+
+
+-- StarterGui.uhh.main.exec
+G2L["1e"] = Instance.new("Frame", G2L["2"]);
+G2L["1e"]["BorderSizePixel"] = 0;
+G2L["1e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1e"]["AnchorPoint"] = Vector2.new(0.5, 0);
+G2L["1e"]["Size"] = UDim2.new(0, 150, 0, 35);
+G2L["1e"]["Position"] = UDim2.new(0.5, -90, 1, -50);
+G2L["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1e"]["Name"] = [[exec]];
+G2L["1e"]["BackgroundTransparency"] = 0.75;
+
+
+-- StarterGui.uhh.main.exec.corner
+G2L["1f"] = Instance.new("UICorner", G2L["1e"]);
+G2L["1f"]["Name"] = [[corner]];
+
+
+-- StarterGui.uhh.main.exec.color
+G2L["20"] = Instance.new("LocalScript", G2L["1e"]);
+G2L["20"]["Name"] = [[color]];
+
+
+-- StarterGui.uhh.main.exec.color.smth
+G2L["21"] = Instance.new("Sound", G2L["20"]);
+G2L["21"]["RollOffMaxDistance"] = 10000000000;
+G2L["21"]["Volume"] = 10;
+G2L["21"]["Looped"] = true;
+G2L["21"]["Name"] = [[smth]];
+G2L["21"]["RollOffMinDistance"] = 10000000000;
+G2L["21"]["SoundId"] = [[rbxassetid://5710016194]];
+
+
+-- StarterGui.uhh.main.exec.detect
+G2L["22"] = Instance.new("TextButton", G2L["1e"]);
+G2L["22"]["BorderSizePixel"] = 0;
+G2L["22"]["TextSize"] = 14;
+G2L["22"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["22"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["22"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["22"]["BackgroundTransparency"] = 1;
+G2L["22"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["22"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["22"]["Text"] = [[]];
+G2L["22"]["Name"] = [[detect]];
+
+
+-- StarterGui.uhh.main.exec.detect.corner
+G2L["23"] = Instance.new("UICorner", G2L["22"]);
+G2L["23"]["Name"] = [[corner]];
+
+
+-- StarterGui.uhh.main.exec.label
+G2L["24"] = Instance.new("TextLabel", G2L["1e"]);
+G2L["24"]["BorderSizePixel"] = 0;
+G2L["24"]["TextSize"] = 14;
+G2L["24"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["24"]["FontFace"] = Font.new([[rbxasset://fonts/families/Arial.json]], Enum.FontWeight.Bold, Enum.FontStyle.Italic);
+G2L["24"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["24"]["BackgroundTransparency"] = 1;
+G2L["24"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["24"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["24"]["Text"] = [[Execute]];
+G2L["24"]["Name"] = [[label]];
+
+
+-- StarterGui.uhh.main.clr
+G2L["25"] = Instance.new("Frame", G2L["2"]);
+G2L["25"]["BorderSizePixel"] = 0;
+G2L["25"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["25"]["AnchorPoint"] = Vector2.new(0.5, 0);
+G2L["25"]["Size"] = UDim2.new(0, 150, 0, 35);
+G2L["25"]["Position"] = UDim2.new(0.5, 90, 1, -50);
+G2L["25"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["25"]["Name"] = [[clr]];
+G2L["25"]["BackgroundTransparency"] = 0.75;
+
+
+-- StarterGui.uhh.main.clr.corner
+G2L["26"] = Instance.new("UICorner", G2L["25"]);
+G2L["26"]["Name"] = [[corner]];
+
+
+-- StarterGui.uhh.main.clr.color
+G2L["27"] = Instance.new("LocalScript", G2L["25"]);
+G2L["27"]["Name"] = [[color]];
+
+
+-- StarterGui.uhh.main.clr.detect
+G2L["28"] = Instance.new("TextButton", G2L["25"]);
+G2L["28"]["BorderSizePixel"] = 0;
+G2L["28"]["TextSize"] = 14;
+G2L["28"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["28"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["28"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["28"]["BackgroundTransparency"] = 1;
+G2L["28"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["28"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["28"]["Text"] = [[]];
+G2L["28"]["Name"] = [[detect]];
+
+
+-- StarterGui.uhh.main.clr.detect.corner
+G2L["29"] = Instance.new("UICorner", G2L["28"]);
+G2L["29"]["Name"] = [[corner]];
+
+
+-- StarterGui.uhh.main.clr.label
+G2L["2a"] = Instance.new("TextLabel", G2L["25"]);
+G2L["2a"]["BorderSizePixel"] = 0;
+G2L["2a"]["TextSize"] = 14;
+G2L["2a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Arial.json]], Enum.FontWeight.Bold, Enum.FontStyle.Italic);
+G2L["2a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2a"]["BackgroundTransparency"] = 1;
+G2L["2a"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["2a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2a"]["Text"] = [[Clear]];
+G2L["2a"]["Name"] = [[label]];
+
+
+-- StarterGui.uhh.febipis
+G2L["2b"] = Instance.new("ImageLabel", G2L["1"]);
+G2L["2b"]["BorderSizePixel"] = 0;
+G2L["2b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+-- [ERROR] cannot convert ImageContent, please report to "https://github.com/uniquadev/GuiToLuaConverter/issues"
+G2L["2b"]["Image"] = [[rbxassetid://3557977622]];
+G2L["2b"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["2b"]["Visible"] = false;
+G2L["2b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2b"]["BackgroundTransparency"] = 1;
+G2L["2b"]["Name"] = [[febipis]];
+
+
+-- StarterGui.uhh.main.drag
+local function C_4()
+local script = G2L["4"];
+	local UIS = game:GetService('UserInputService')
+	local frame = script.Parent
+	local dragToggle = nil
+	local dragSpeed = 0.25
+	local dragStart = nil
+	local startPos = nil
+	
+	local function updateInput(input)
+		local delta = input.Position - dragStart
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	end
+	
+	frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+	
+	UIS.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			if dragToggle then
+				updateInput(input)
+			end
+		end
+	end)
+	
+end;
+task.spawn(C_4);
+-- StarterGui.uhh.main.close.color
+local function C_9()
+local script = G2L["9"];
+	local tweenservice = game:GetService("TweenService")
+	
+	local button = script.Parent.detect
+	local info = TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+	
+	button.MouseEnter:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.65})
+		tween:Play()
+	end)
+	
+	button.MouseLeave:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.75})
+		tween:Play()
+	end)
+	
+	button.MouseButton1Down:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.45})
+		tween:Play()
+	end)
+	
+	button.MouseButton1Up:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.75})
+		tween:Play()
+	end)
+	
+	button.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Visible = false
+	end)
+	
+end;
+task.spawn(C_9);
+-- StarterGui.uhh.main.toggle
+local function C_c()
+local script = G2L["c"];
+	local uis = game:GetService("UserInputService")
+	
+	uis.InputBegan:Connect(function(input, gpe)
+		if gpe then return end
+		if input.KeyCode == Enum.KeyCode.Insert then
+			script.Parent.Visible = not script.Parent.Visible
+		end
+	end)
+	
+end;
+task.spawn(C_c);
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.TextBox.LineChecker
+local function C_10()
+local script = G2L["10"];
+	local textBox = script.Parent
+	local linesValue = script.Parent.Parent.LinesValue
+	
+	local function countLines(text)
+		local _, count = string.gsub(text, "\n", "\n")
+		return count + 1
+	end
+	
+	local lastLineCount = countLines(textBox.Text)
+	
+	textBox:GetPropertyChangedSignal("Text"):Connect(function()
+		local currentLineCount = countLines(textBox.Text)
+		if currentLineCount ~= lastLineCount then
+			-- Update the NumberValue based on the difference
+			local diff = currentLineCount - lastLineCount
+			linesValue.Value += diff
+			lastLineCount = currentLineCount
+		end
+	end)
+	
+end;
+task.spawn(C_10);
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.Lines
+local function C_15()
+local script = G2L["15"];
+	local scrollingFrame = script.Parent
+	local frame = scrollingFrame:FindFirstChild("LinesFrame")
+	local template = frame:FindFirstChild("TextLabelTemplate")
+	local linesValue = scrollingFrame:FindFirstChild("LinesValue")
+	
+	if not frame or not template or not linesValue then
+		warn("LOL, something went wrong in the code dummy")-------------------------------------------------------------------------------------
+		return
+	end
+	
+	local clones = {}
+	--local currentLineCount = linesValue.Value
+	local currentLineCount = 1
+	
+	linesValue:GetPropertyChangedSignal("Value"):Connect(function()
+		local newLineCount = linesValue.Value
+	
+		if newLineCount > currentLineCount then
+			for _ = 1, newLineCount - currentLineCount do
+				local clone = template:Clone()
+				clone.Visible = true
+				clone.Text = tostring(#clones + 2)
+				clone.Parent = frame
+				table.insert(clones, clone)
+			end
+		elseif newLineCount < currentLineCount then
+			for _ = 1, currentLineCount - newLineCount do
+				local lastClone = table.remove(clones)
+				if lastClone then
+					lastClone:Destroy()
+				end
+			end
+		end
+	
+		currentLineCount = newLineCount
+	end)
+end;
+task.spawn(C_15);
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.Syntax
+local function C_17()
+local script = G2L["17"];
+	local scrollingFrame = script.Parent
+	local textBox = scrollingFrame:WaitForChild("TextBox")
+	local highlightLabel = scrollingFrame:WaitForChild("Highlighting")
+	
+	local keywords = {
+		-- Lua base
+		["and"] = true, ["break"] = true, ["do"] = true, ["else"] = true,
+		["elseif"] = true, ["end"] = true, ["false"] = true, ["for"] = true,
+		["function"] = true, ["if"] = true, ["in"] = true, ["local"] = true,
+		["nil"] = true, ["not"] = true, ["or"] = true, ["repeat"] = true,
+		["return"] = true, ["then"] = true, ["true"] = true, ["until"] = true,
+		["while"] = true,["require"] = true,
+	
+		-- Lua globals
+		["print"] = true, ["pairs"] = true, ["ipairs"] = true, ["next"] = true,
+		["tonumber"] = true, ["tostring"] = true, ["type"] = true, ["pcall"] = true,
+		["xpcall"] = true, ["coroutine"] = true, ["table"] = true, ["string"] = true,
+		["math"] = true, ["os"] = true,
+	
+		-- Roblox common types/functions
+		["game"] = true, ["workspace"] = true, ["script"] = true, ["Instance"] = true,
+		["Vector3"] = true, ["CFrame"] = true, ["Color3"] = true, ["UDim2"] = true,
+		["Enum"] = true, ["wait"] = true, ["delay"] = true, ["spawn"] = true,
+		["tick"] = true, ["time"] = true,
+	}
+	
+	local colorMap = {
+		["keyword"] = Color3.fromRGB(255, 112, 129),
+		["string"] = Color3.fromRGB(172, 235, 144),
+		["comment"] = Color3.fromRGB(120, 120, 120),
+		["number"] = Color3.fromRGB(255, 196, 1),
+	}
+	
+	local function highlight(code)
+		local result = ""
+		local i = 1
+	
+		while i <= #code do
+			local char = code:sub(i, i)
+	
+			if code:sub(i, i+1) == "--" then
+				local comment = code:sub(i):match("^%-%-[^\n]*")
+				result ..= `<font color="rgb(120,120,120)">{comment}</font>`
+				i += #comment
+			elseif char == '"' or char == "'" then
+				local quote = char
+				local s, e = code:find(quote..".-"..quote, i)
+				if s then
+					local str = code:sub(s, e)
+					result ..= `<font color="rgb(172, 235, 144)">{str}</font>`
+					i = e + 1
+				else
+					result ..= char
+					i += 1
+				end
+			elseif code:sub(i):match("^%d") then
+				local num = code:sub(i):match("^%d+%.?%d*")
+				result ..= `<font color="rgb(255, 198, 1)">{num}</font>`
+				i += #num
+			elseif code:sub(i):match("^%a") then
+				local word = code:sub(i):match("^[%a_][%w_]*")
+				if keywords[word] then
+					result ..= `<font color="rgb(255, 112, 129)">{word}</font>`
+				else
+					result ..= word
+				end
+				i += #word
+			else
+				result ..= char
+				i += 1
+			end
+		end
+		return result
+	end
+	
+	local function sync()
+		highlightLabel.Text = highlight(textBox.Text)
+		highlightLabel.Size = textBox.Size
+		highlightLabel.Position = textBox.Position
+	end
+	
+	textBox:GetPropertyChangedSignal("Text"):Connect(sync)
+	textBox:GetPropertyChangedSignal("CursorPosition"):Connect(sync)
+	textBox:GetPropertyChangedSignal("Size"):Connect(sync)
+	sync()
+end;
+task.spawn(C_17);
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.Selector
+local function C_19()
+local script = G2L["19"];
+	local fastTextBox = script.Parent
+	local textBox = fastTextBox:WaitForChild("TextBox")
+	local selector = fastTextBox:WaitForChild("LineSelector")
+	
+	local lineHeight = textBox.TextSize
+	selector.BackgroundTransparency = 0.85
+	
+	local TweenService = game:GetService("TweenService")
+	local tweenInfo = TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	
+	local function updateLineSelector()
+		local cursor = textBox.CursorPosition
+		if cursor <= 0 then
+			selector.Visible = false
+			return
+		end
+	
+		local textBeforeCursor = textBox.Text:sub(1, cursor)
+		local lineNumber = select(2, textBeforeCursor:gsub("\n", "\n")) + 1
+		local targetPosition = UDim2.new(0, 20, 0, (lineNumber - 1) * lineHeight)
+		local targetSize = UDim2.new(1, 0, 0, lineHeight)
+	
+		TweenService:Create(selector, tweenInfo, {
+			Position = targetPosition,
+			Size = targetSize,
+		}):Play()
+		selector.Visible = true
+	end
+	textBox:GetPropertyChangedSignal("CursorPosition"):Connect(updateLineSelector)
+	textBox:GetPropertyChangedSignal("Text"):Connect(updateLineSelector)
+	
+	updateLineSelector()
+end;
+task.spawn(C_19);
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.CursorScript
+local function C_1b()
+local script = G2L["1b"];
+	local fastTextBox = script.Parent
+	local textBox = fastTextBox:WaitForChild("TextBox")
+	local cursorFrame = fastTextBox:WaitForChild("Cursor")
+	local measurer = fastTextBox:WaitForChild("TextMeasurer")
+	local blinkInterval = 0.5
+	local offsetX = 20
+	local lineHeight = textBox.TextSize
+	
+	cursorFrame.Size = UDim2.new(0, 1, 0, lineHeight)
+	cursorFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	local function updateCursor()
+		local cursorPos = textBox.CursorPosition
+		if cursorPos <= 0 then
+			cursorFrame.Visible = false
+			return
+		end
+	
+		local textBeforeCursor = textBox.Text:sub(1, cursorPos - 1)
+		local lineNumber = select(2, textBeforeCursor:gsub("\n", "\n")) + 1
+		local lastNewline = textBeforeCursor:match(".*()\n")
+		local currentLineText = lastNewline and textBeforeCursor:sub(lastNewline + 1) or textBeforeCursor
+	
+		measurer.Text = currentLineText
+		local textWidth = measurer.TextBounds.X
+		local xPos = textWidth + offsetX
+		local yPos = (lineNumber - 1) * lineHeight
+		
+		cursorFrame.Position = UDim2.new(0, xPos, 0, yPos)
+		cursorFrame.Visible = true
+	end
+	
+	local function blink()
+		while true do
+			cursorFrame.Visible = not cursorFrame.Visible
+			wait(blinkInterval)
+		end
+	end
+	
+	textBox:GetPropertyChangedSignal("CursorPosition"):Connect(updateCursor)
+	textBox:GetPropertyChangedSignal("Text"):Connect(updateCursor)
+	
+	spawn(blink)
+	updateCursor()
+end;
+task.spawn(C_1b);
+-- StarterGui.uhh.main.FastColoredTextbox.Scroll.AutomaticScrollBarSize
+local function C_1d()
+local script = G2L["1d"];
+	local scrollingFrame = script.Parent
+	local textBox = scrollingFrame:WaitForChild("TextBox")
+	local textService = game:GetService("TextService")
+	
+	local function updateCanvasSize()
+		local textSize = textService:GetTextSize(
+			textBox.Text,
+			textBox.TextSize,
+			textBox.Font,
+			Vector2.new(math.huge, math.huge)
+		)
+		local paddingX, paddingY = 10, 10
+	
+		scrollingFrame.CanvasSize = UDim2.new(
+			0, textSize.X + paddingX,
+			0, textSize.Y + paddingY
+		)
+	end
+	textBox:GetPropertyChangedSignal("Text"):Connect(updateCanvasSize)
+	updateCanvasSize()
+end;
+task.spawn(C_1d);
+-- StarterGui.uhh.main.exec.color
+local function C_20()
+local script = G2L["20"];
+	local tweenservice = game:GetService("TweenService")
+	
+	local button = script.Parent.detect
+	local info = TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+	
+	button.MouseEnter:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.65})
+		tween:Play()
+	end)
+	
+	button.MouseLeave:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.75})
+		tween:Play()
+	end)
+	
+	button.MouseButton1Down:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.45})
+		tween:Play()
+	end)
+	
+	button.MouseButton1Up:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.75})
+		tween:Play()
+	end)
+	
+	button.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.febipis.Visible = true
+		script.smth:Play()
+	end)
+	
+end;
+task.spawn(C_20);
+-- StarterGui.uhh.main.clr.color
+local function C_27()
+local script = G2L["27"];
+	local tweenservice = game:GetService("TweenService")
+	
+	local button = script.Parent.detect
+	local info = TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+	
+	button.MouseEnter:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.65})
+		tween:Play()
+	end)
+	
+	button.MouseLeave:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.75})
+		tween:Play()
+	end)
+	
+	button.MouseButton1Down:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.45})
+		tween:Play()
+	end)
+	
+	button.MouseButton1Up:Connect(function()
+		local tween = tweenservice:Create(script.Parent, info, {BackgroundTransparency = 0.75})
+		tween:Play()
+	end)
+	
+	button.MouseButton1Click:Connect(function()
+		script.Parent.Parent.FastColoredTextbox.Scroll.TextBox.Text = ""
+	end)
+	
+end;
+task.spawn(C_27);
+
+return G2L["1"], require;
