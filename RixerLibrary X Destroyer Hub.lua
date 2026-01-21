@@ -3082,7 +3082,7 @@ local Settings = {
 }
 
 _G.CurrentTrack = nil
-local FIXED_ANIMATION_ID = 101852027997337
+local FIXED_ANIMATION_ID = 70883871260184
 
 local function LoadTrack()
     if _G.CurrentTrack then 
