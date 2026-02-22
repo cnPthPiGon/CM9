@@ -422,6 +422,13 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "AntiLag",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/Best-Script-Server-and-client/refs/heads/main/Best-AntiLag-Max-FFlag"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "bring Part Fe",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/CM9/refs/heads/main/Bring%20Part%20And%20More"))()
