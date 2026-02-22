@@ -277,9 +277,9 @@ local Tab7 = Window:MakeTab({
 })
 
 Tab7:AddButton({
-    Name = "AntiKick",
+    Name = "AntiKick Max",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Anti-Kick/refs/heads/main/Anti-Kick.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/Best-Script-Server-and-client/refs/heads/main/BestAntiKick-Max-Possible.lua"))()
     end    
 })
 
