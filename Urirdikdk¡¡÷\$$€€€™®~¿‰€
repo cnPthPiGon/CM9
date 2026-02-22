@@ -1,4 +1,4 @@
--- New draggable Orion Lib script for hub creations!
+-- Made By Rixer95-x2 in Youtube!
 local OrionLib = loadstring(game:HttpGet(('https://pastebin.com/raw/WRUyYTdY')))()
 
 local Window = OrionLib:MakeWindow({
@@ -301,6 +301,13 @@ local Tab8 = Window:MakeTab({
     PremiumOnly = false
 })
 
+Tab9:AddButton({
+    Name = "AntiLag Using FFlag",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/Best-Script-Server-and-client/refs/heads/main/Best-AntiLag-Max-FFlag"))()
+    end    
+})
+
 Tab8:AddButton({
     Name = "Harked v2",
     Callback = function()
@@ -355,6 +362,8 @@ Tab9:AddButton({
         loadstring(game:HttpGet("https://pastebin.com/raw/ZAPFnK3W"))()
     end    
 })
+
+
 
 Tab9:AddButton({
     Name = "WalkSpeed",
