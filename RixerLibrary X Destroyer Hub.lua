@@ -281,9 +281,9 @@ local Tab7 = Window:MakeTab({
 })
 
 Tab7:AddButton({
-    Name = "AntiKick",
+    Name = "AntiKick Max",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Anti-Kick/refs/heads/main/Anti-Kick.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/Best-Script-Server-and-client/refs/heads/main/BestAntiKick-Max-Possible.lua"))()
     end    
 })
 
@@ -342,6 +342,13 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "bring Part Fe",
+    Callback = function()
+        loadstring(game:HttpGet("ent.com/cnPthPiGon/CM9/refs/heads/main/Bring%20Part%20And%20More"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "IgnoreFitouchintereste",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main",true))()
@@ -349,9 +356,9 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
-    Name = "God Mod",
+    Name = "Anti Lag Using FFlag",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/ZAPFnK3W"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/Best-Script-Server-and-client/refs/heads/main/Best-AntiLag-Max-FFlag"))()
     end    
 })
 
