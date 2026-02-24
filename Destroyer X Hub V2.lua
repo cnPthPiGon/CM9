@@ -3071,6 +3071,6 @@ local Tab17 = Window:MakeTab({
 Tab17:AddButton({
     Name = "Skybox Gui By Chris & Rixer95-x2, Chxris",
     Callback = function()
-        loadstring(game:HttpGet("https://key-script.onrender.com/2e75e8686697a672df458856c64b12a1"))()
+        loadstring(game:HttpGet("https://protected-roblox-scripts.onrender.com/461565640e2f7fc635b82bd72f6301da"))()
     end
 })
