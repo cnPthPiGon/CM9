@@ -443,6 +443,13 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "Tool Control",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/v0c0n1337/scripts/refs/heads/main/FE%20Tool%20control.txt"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "bring Part Fe",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/CM9/refs/heads/main/Bring%20Part%20And%20More"))()
