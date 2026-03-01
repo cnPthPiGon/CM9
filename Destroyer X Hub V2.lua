@@ -139,6 +139,13 @@ Tab3:AddButton({
 })
 
 Tab3:AddButton({
+    Name = "Instant Kill Gui Fling",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/v0c0n1337/scripts/refs/heads/main/febypasskill.lua"))()
+    end    
+})
+
+Tab3:AddButton({
     Name = "Dex keyless",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/DEX-Explorer/main/Mobile.lua"))()
