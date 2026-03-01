@@ -3116,3 +3116,68 @@ Tab17:AddButton({
         loadstring(game:HttpGet("https://protected-roblox-scripts.onrender.com/461565640e2f7fc635b82bd72f6301da"))()
     end
 })
+
+local Tab18 = Window:MakeTab({
+    Name = "Natural Disaster",
+    Icon = "rbxassetid://75756933857153",
+    PremiumOnly = false
+})
+
+Tab18:AddButton({
+    Name = "Fe Making all people Noob (LAG)",
+    Callback = function()
+        local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local CoreGui = game:GetService("CoreGui")
+local StarterGui = game:GetService("StarterGui")
+local player = Players.LocalPlayer
+
+pcall(function()
+    local pp = CoreGui:FindFirstChild("PurchasePromptApp")
+    if pp then pp:Destroy() end
+end)
+
+pcall(function()
+    local pg = player:FindFirstChild("PlayerGui") or player.PlayerGui
+    if pg then
+        local mg = pg:FindFirstChild("MainGui")
+        if mg and mg:FindFirstChild("HoverSound") then
+            mg.HoverSound.Volume = 0
+        end
+    end
+end)
+
+pcall(function()
+    StarterGui:SetCore("SendNotification", {
+        Title = "Made by V0C0N1337",
+        Text = "script executed if players die look players LMAO",
+        Duration = 7
+    })
+end)
+
+local function clickBalloonAndApple(spamCount)
+    local balloon = Workspace:FindFirstChild("BillboardBalloon")
+    local apple = Workspace:FindFirstChild("BillboardApple")
+    local balloonClick = balloon and balloon:FindFirstChild("Board") and balloon.Board:FindFirstChildOfClass("ClickDetector")
+    local appleClick = apple and apple:FindFirstChild("Board") and apple.Board:FindFirstChildOfClass("ClickDetector")
+    if balloonClick then
+        task.spawn(function()
+            for i=1, (spamCount or 25000) do
+                fireclickdetector(balloonClick)
+                if i % 50 == 0 then task.wait() end
+            end
+        end)
+    end
+    if appleClick then
+        task.spawn(function()
+            for i=1, (spamCount or 25000) do
+                fireclickdetector(appleClick)
+                if i % 50 == 0 then task.wait() end
+            end
+        end)
+    end
+end
+
+clickBalloonAndApple(30000)
+    end
+})
