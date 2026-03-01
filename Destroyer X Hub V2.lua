@@ -415,6 +415,13 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "FE R6",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/v0c0n1337/scripts/refs/heads/main/R6.txt"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "Tpwalk Gui",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-tpwalk-script-17608"))()
