@@ -3064,6 +3064,13 @@ Tab15:AddButton({
 })
 
 Tab15:AddButton({
+    Name = "Unenchored part Control",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/v0c0n1337/scripts/refs/heads/main/Unachored_parts_controller_v2.lua.txt"))()
+    end    
+})
+
+Tab15:AddButton({
     Name = "Telekinesis V5",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fe-Telekinesis-V5-21542"))()
