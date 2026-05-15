@@ -359,6 +359,212 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "LoopcBring By @rixer95-x2",
+    Callback = function()
+        local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local RunService = game:GetService("RunService")
+
+local Target = nil
+local Loop = nil
+local LoopAll = nil
+
+local gui = Instance.new("ScreenGui", LocalPlayer:WaitForChild("PlayerGui"))
+gui.Name = "ChxrisPanel"
+gui.ResetOnSpawn = false
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 280, 0, 240)
+frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+frame.AnchorPoint = Vector2.new(0.5, 0.5)
+frame.BackgroundColor3 = Color3.fromRGB(0,0,0)
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true
+
+local function neonTextColor()
+	return Color3.fromRGB(170, 0, 255)
+end
+
+local function makeCorner(obj)
+	local c = Instance.new("UICorner", obj)
+	c.CornerRadius = UDim.new(0, 0)
+	return c
+end
+
+local top = Instance.new("Frame", frame)
+top.Size = UDim2.new(1,0,0,22)
+top.BackgroundColor3 = Color3.fromRGB(0,0,0)
+top.BorderSizePixel = 0
+
+local title = Instance.new("TextLabel", top)
+title.Size = UDim2.new(1,0,1,0)
+title.BackgroundTransparency = 1
+title.Text = "Made By Chxris"
+title.TextColor3 = neonTextColor()
+title.Font = Enum.Font.ArialBold
+title.TextSize = 14
+
+local avatar = Instance.new("ImageLabel", frame)
+avatar.Size = UDim2.new(0, 70, 0, 70)
+avatar.Position = UDim2.new(0.5, -35, 0, 30)
+avatar.BackgroundColor3 = Color3.fromRGB(0,0,0)
+avatar.BorderSizePixel = 0
+avatar.Image = ""
+
+Instance.new("UICorner", avatar).CornerRadius = UDim.new(1,0)
+
+local box = Instance.new("TextBox", frame)
+box.Size = UDim2.new(0.85,0,0,26)
+box.Position = UDim2.new(0.075,0,0,110)
+box.BackgroundColor3 = Color3.fromRGB(0,0,0)
+box.BorderSizePixel = 1
+box.BorderColor3 = neonTextColor()
+box.TextColor3 = neonTextColor()
+box.PlaceholderText = "player name"
+box.Font = Enum.Font.Arial
+box.TextSize = 14
+
+makeCorner(box)
+
+local btn = Instance.new("TextButton", frame)
+btn.Size = UDim2.new(0.85,0,0,28)
+btn.Position = UDim2.new(0.075,0,0,145)
+btn.Text = "LOOP BRING"
+btn.BackgroundColor3 = Color3.fromRGB(0,0,0)
+btn.BorderSizePixel = 1
+btn.BorderColor3 = neonTextColor()
+btn.TextColor3 = neonTextColor()
+btn.Font = Enum.Font.ArialBold
+btn.TextSize = 14
+
+makeCorner(btn)
+
+local btnAll = Instance.new("TextButton", frame)
+btnAll.Size = UDim2.new(0.85,0,0,28)
+btnAll.Position = UDim2.new(0.075,0,0,180)
+btnAll.Text = "LOOP ALL"
+btnAll.BackgroundColor3 = Color3.fromRGB(0,0,0)
+btnAll.BorderSizePixel = 1
+btnAll.BorderColor3 = neonTextColor()
+btnAll.TextColor3 = neonTextColor()
+btnAll.Font = Enum.Font.ArialBold
+btnAll.TextSize = 14
+
+makeCorner(btnAll)
+
+local function findPlayer(text)
+	text = text:lower()
+	for _,p in ipairs(Players:GetPlayers()) do
+		if p ~= LocalPlayer and p.Name:lower():find(text) then
+			return p
+		end
+	end
+	return nil
+end
+
+local function updateAvatar(plr)
+	if not plr then
+		avatar.Image = ""
+		return
+	end
+
+	local ok, img = pcall(function()
+		return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+	end)
+
+	if ok then
+		avatar.Image = img
+	end
+end
+
+box:GetPropertyChangedSignal("Text"):Connect(function()
+	updateAvatar(findPlayer(box.Text))
+end)
+
+local function start()
+	if Loop then return end
+
+	Target = findPlayer(box.Text)
+	if not Target then return end
+
+	Loop = RunService.RenderStepped:Connect(function()
+		if Target and Target.Character and Target.Character:FindFirstChild("HumanoidRootPart")
+		and LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+
+			local hrp = LocalPlayer.Character.HumanoidRootPart
+			local trg = Target.Character.HumanoidRootPart
+
+			trg.CFrame = hrp.CFrame * CFrame.new(0,2,-5)
+		end
+	end)
+end
+
+local function stop()
+	if Loop then
+		Loop:Disconnect()
+		Loop = nil
+	end
+	Target = nil
+end
+
+local function startAll()
+	if LoopAll then return end
+
+	LoopAll = RunService.RenderStepped:Connect(function()
+		local char = LocalPlayer.Character
+		if not char or not char:FindFirstChild("HumanoidRootPart") then return end
+
+		local hrp = char.HumanoidRootPart
+		local base = hrp.CFrame * CFrame.new(0,2,-5)
+
+		for _, p in ipairs(Players:GetPlayers()) do
+			if p ~= LocalPlayer and p.Character then
+
+				local hum = p.Character:FindFirstChildOfClass("Humanoid")
+				local trg = p.Character:FindFirstChild("HumanoidRootPart")
+
+				if hum and trg then
+					if hum.SeatPart then
+						trg.AssemblyLinearVelocity = Vector3.zero
+						trg.AssemblyAngularVelocity = Vector3.zero
+					else
+						hum.PlatformStand = true
+						trg.AssemblyLinearVelocity = Vector3.zero
+						trg.AssemblyAngularVelocity = Vector3.zero
+						trg.CFrame = base
+					end
+				end
+			end
+		end
+	end)
+end
+
+local function stopAll()
+	if LoopAll then
+		LoopAll:Disconnect()
+		LoopAll = nil
+	end
+end
+
+btn.MouseButton1Click:Connect(function()
+	if Loop then stop() else start() end
+end)
+
+btnAll.MouseButton1Click:Connect(function()
+	if LoopAll then stopAll() else startAll() end
+end)
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Hitbox Expander",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/example-prog/Hitbox-Expander/refs/heads/main/RScripter"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "IgnoreFitouchintereste",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main",true))()
