@@ -8,7 +8,7 @@ local Window = OrionLib:MakeWindow({
     ConfigFolder = "DestroyerHub" -- Met un nom personnalisé pour ton hub ici
 })
 
-print("the owner of the scripts is rixer95-x2 in youtube.") -- Just a debug
+print("the owner of the scripts is rixer95-x2 in youtube.")
 
 local Tab = Window:MakeTab({
     Name = "kill/bringHead",
@@ -346,6 +346,13 @@ Tab9:AddButton({
     Name = "fly gui V3",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/bHa6HDFc"))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Desync",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/CM9/refs/heads/main/DesyncRobloxFFlagManipulation.lua"))()
     end    
 })
 
