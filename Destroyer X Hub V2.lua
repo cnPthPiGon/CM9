@@ -2921,6 +2921,13 @@ Tab12:AddButton({
 })
 
 Tab12:AddButton({
+    Name = "Soul Reaper F3X",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/CM9/refs/heads/main/Soul_Reaper_F3X.lua"))()
+    end    
+})
+
+Tab12:AddButton({
     Name = "zoon gui",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/c00lgui-FE-BYPASS/refs/heads/main/all%20script.lua"))()
