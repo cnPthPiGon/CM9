@@ -2788,6 +2788,132 @@ Tab12:AddButton({
 })
 
 Tab12:AddButton({
+    Name = "Goner F3X",
+    Callback = function()
+        local function Script_F3X_Goner()
+    local player = game.Players.LocalPlayer
+    local char = player.Character
+    local mouse = player:GetMouse()
+    local RunService = game:GetService("RunService")
+    
+    local tool
+    for i,v in player:GetDescendants() do if v.Name == "SyncAPI" then tool = v.Parent end end
+    if not tool then
+        for i,v in game.ReplicatedStorage:GetDescendants() do if v.Name == "SyncAPI" then tool = v.Parent end end
+    end
+    if not tool then return end
+    
+    local remote = tool.SyncAPI.ServerEndpoint
+    local function _(args) remote:InvokeServer(unpack(args)) end
+
+    local active = true
+    local isAttacking = false
+    local slashProgress = 0
+
+    local function CreateGPart(size, color)
+        local p = remote:InvokeServer("CreatePart", "Normal", char.HumanoidRootPart.CFrame, workspace)
+        _({"SyncResize", {{["Part"] = p, ["CFrame"] = char.HumanoidRootPart.CFrame, ["Size"] = size}}})
+        _({"SyncColor", {{["Part"] = p, ["Color"] = color or Color3.new(0, 0, 0)}}})
+        _({"SyncMaterial", {{["Part"] = p, ["Material"] = Enum.Material.Neon}}})
+        _({"SyncCollision", {{["Part"] = p, ["CanCollide"] = false}}})
+        return p
+    end
+
+    -- Ð¢ÐµÐ»Ð¾
+    local gTorso = CreateGPart(Vector3.new(2.2, 2.2, 1.2))
+    local gHead = CreateGPart(Vector3.new(1, 1, 1)) 
+    local gRArm = CreateGPart(Vector3.new(1.2, 2.2, 1.2))
+    local gLArm = CreateGPart(Vector3.new(1.2, 2.2, 1.2))
+    local gRLeg = CreateGPart(Vector3.new(1.2, 2.2, 1.2))
+    local gLLeg = CreateGPart(Vector3.new(1.2, 2.2, 1.2))
+    local gScythe = CreateGPart(Vector3.new(2, 5.925, 0.25))
+
+    -- Ð“Ð»Ð°Ð·Ð°
+    local eyeL = CreateGPart(Vector3.new(0.25, 0.25, 0.25), Color3.new(1, 0, 0))
+    local eyeR = CreateGPart(Vector3.new(0.25, 0.25, 0.25), Color3.new(1, 0, 0))
+    
+    _({"CreateMeshes", {{["Part"] = eyeL}, {["Part"] = eyeR}, {["Part"] = gHead}, {["Part"] = gScythe}}})
+    _({"SyncMesh", {
+        {["Part"] = eyeL, ["MeshType"] = Enum.MeshType.Cylinder, ["Scale"] = Vector3.new(0.6, 0.6, 0.6)},
+        {["Part"] = eyeR, ["MeshType"] = Enum.MeshType.Cylinder, ["Scale"] = Vector3.new(0.6, 0.6, 0.6)},
+        {["Part"] = gHead, ["MeshType"] = Enum.MeshType.Head, ["Scale"] = Vector3.new(1.4, 1.4, 1.4)},
+        {["Part"] = gScythe, ["MeshId"] = "rbxassetid://500489601", ["Scale"] = Vector3.new(0.01, 0.01, 0.01)}
+    }})
+
+    _({"CreateDecorations", {{["Part"] = gTorso, ["DecorationType"] = "Fire"}}})
+    _({"SyncDecorate", {{["Part"] = gTorso, ["DecorationType"] = "Fire", ["Size"] = 10, ["Heat"] = 5, ["Color"] = Color3.new(0, 0, 0), ["SecondaryColor"] = Color3.new(0, 0, 0)}}})
+
+    local tor = char:FindFirstChild("Torso") or char:FindFirstChild("UpperTorso")
+    local rArm = char:FindFirstChild("Right Arm") or char:FindFirstChild("RightHand")
+    local rShoulder = tor:FindFirstChild("Right Shoulder") or rArm:FindFirstChild("RightShoulder")
+    local oldC0 = rShoulder.C0
+
+    local connection
+    connection = RunService.Heartbeat:Connect(function()
+        if not active or not gTorso or not gTorso.Parent then 
+            rShoulder.C0 = oldC0
+            connection:Disconnect() 
+            return 
+        end
+
+        local hitPos = mouse.Hit.p
+        local jointPos = tor.CFrame:PointToWorldSpace(oldC0.p)
+        local direction = (hitPos - jointPos).Unit
+        local angle = math.asin(direction.Y)
+        
+        local slashAnim = CFrame.new()
+        if isAttacking then
+            slashProgress = slashProgress + 0.08
+            local s = math.sin(slashProgress * math.pi)
+            slashAnim = CFrame.Angles(math.rad(110 * s), math.rad(-80 * s), math.rad(25 * s))
+            if slashProgress >= 1 then isAttacking = false slashProgress = 0 end
+        end
+
+        rShoulder.C0 = oldC0 * CFrame.Angles(0, 0, math.rad(90)) * CFrame.Angles(angle, 0, 0) * slashAnim
+
+        local headCF = char.Head.CFrame
+        local handCF = rArm.CFrame * CFrame.new(0, -1, 0) * CFrame.Angles(math.rad(90), 0, 0)
+        local scytheCF = handCF * CFrame.new(0, -0.5, 0) * CFrame.Angles(math.rad(90), math.rad(180), 0)
+
+        task.spawn(function()
+            _({"SyncMove", {
+                {["Part"] = gTorso, ["CFrame"] = tor.CFrame},
+                {["Part"] = gHead, ["CFrame"] = headCF * CFrame.new(0, 0.15, 0)},
+                {["Part"] = gLArm, ["CFrame"] = char["Left Arm"].CFrame},
+                {["Part"] = gRArm, ["CFrame"] = rArm.CFrame},
+                {["Part"] = gRLeg, ["CFrame"] = char["Right Leg"].CFrame},
+                {["Part"] = gLLeg, ["CFrame"] = char["Left Leg"].CFrame},
+                {["Part"] = gScythe, ["CFrame"] = scytheCF},
+                {["Part"] = eyeL, ["CFrame"] = headCF * CFrame.new(-0.28, 0.22, -0.62) * CFrame.Angles(0, math.rad(90), 0)},
+                {["Part"] = eyeR, ["CFrame"] = headCF * CFrame.new(0.28, 0.22, -0.62) * CFrame.Angles(0, math.rad(90), 0)}
+            }})
+        end)
+
+        -- ÐšÐ˜Ð›Ð›-ÐÐ£Ð Ð (Ð Ð°Ð´Ð¸ÑƒÑ 3)
+        local region = workspace:GetPartBoundsInRadius(scytheCF.Position, 3)
+        for _, p in pairs(region) do
+            local m = p.Parent
+            if m:IsA("Model") and m:FindFirstChild("Humanoid") and m ~= char then
+                local targetHead = m:FindFirstChild("Head")
+                if targetHead then
+                    task.spawn(function()
+                        remote:InvokeServer("Remove", {targetHead})
+                    end)
+                end
+            end
+        end
+    end)
+
+    mouse.Button1Down:Connect(function()
+        if not isAttacking then isAttacking = true slashProgress = 0 end
+    end)
+end
+
+Script_F3X_Goner()
+    end    
+})
+
+Tab12:AddButton({
     Name = "f3x backdoor",
     Callback = function()
         loadstring(game:HttpGet('https://gist.githubusercontent.com/MRSBLACK999/a1521a41ab1d1b67f5073aacce0bce32/raw/432ed275c41a160eca06ca1ad473a67a50168182/Fe%2520F3x%2520Backdoor%2520Gui'))()
