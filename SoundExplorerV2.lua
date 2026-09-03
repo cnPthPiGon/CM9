@@ -17,12 +17,13 @@ local Selected = nil
 local RefreshQueued = false
 local Destroyed = false
 local PlayingAll = false
-local LoopAllActive = false
+local LoopingAll = false
 local AllConnection
-local LoopAllConnection
+local LoopAllThread
 local FPS = 0
 local LastFPSUpdate = os.clock()
 local FPSFrames = 0
+local VolumeFilter = false
 
 local Gui = Instance.new("ScreenGui")
 Gui.Name = "SoundExplorer"
@@ -84,7 +85,7 @@ Header.Parent = Main
 local Title = Instance.new("TextLabel")
 Title.BackgroundTransparency = 1
 Title.Position = UDim2.fromOffset(2, 0)
-Title.Size = UDim2.fromOffset(125, 21)
+Title.Size = UDim2.fromOffset(155, 20)
 Title.Font = Enum.Font.GothamMedium
 Title.Text = "Sounds Explorer"
 Title.TextSize = 14
@@ -94,19 +95,19 @@ Title.Parent = Header
 
 local Count = Instance.new("TextLabel")
 Count.BackgroundTransparency = 1
-Count.Position = UDim2.fromOffset(2, 20)
-Count.Size = UDim2.fromOffset(95, 16)
+Count.Position = UDim2.fromOffset(160, 1)
+Count.Size = UDim2.fromOffset(90, 18)
 Count.Font = Enum.Font.Gotham
 Count.Text = "0 sounds"
-Count.TextSize = 8
+Count.TextSize = 9
 Count.TextColor3 = Color3.fromRGB(125, 132, 144)
 Count.TextXAlignment = Enum.TextXAlignment.Left
 Count.Parent = Header
 
 local FPSLabel = Instance.new("TextLabel")
 FPSLabel.BackgroundTransparency = 1
-FPSLabel.Position = UDim2.fromOffset(100, 20)
-FPSLabel.Size = UDim2.fromOffset(70, 16)
+FPSLabel.Position = UDim2.fromOffset(160, 20)
+FPSLabel.Size = UDim2.fromOffset(90, 16)
 FPSLabel.Font = Enum.Font.Gotham
 FPSLabel.Text = "FPS: 0"
 FPSLabel.TextSize = 8
@@ -116,32 +117,21 @@ FPSLabel.Parent = Header
 
 local Respect = Instance.new("TextLabel")
 Respect.BackgroundTransparency = 1
-Respect.Position = UDim2.fromOffset(172, 20)
-Respect.Size = UDim2.fromOffset(125, 16)
+Respect.Position = UDim2.fromOffset(2, 22)
+Respect.Size = UDim2.fromOffset(155, 16)
 Respect.Font = Enum.Font.Gotham
 Respect.TextSize = 8
 Respect.TextXAlignment = Enum.TextXAlignment.Left
 Respect.Parent = Header
 
-local Credit = Instance.new("TextLabel")
-Credit.BackgroundTransparency = 1
-Credit.Position = UDim2.new(1, -205, 0, 20)
-Credit.Size = UDim2.fromOffset(205, 16)
-Credit.Font = Enum.Font.Gotham
-Credit.Text = "Made By Chxris - Rixer95-x2 In Youtube."
-Credit.TextSize = 7
-Credit.TextColor3 = Color3.fromRGB(105, 110, 120)
-Credit.TextXAlignment = Enum.TextXAlignment.Right
-Credit.Parent = Header
-
 local function UpdateRespect()
 	if SoundService.RespectFilteringEnabled then
 		Respect.Text = "RespectFilteringEnabled: ON"
+		Respect.TextColor3 = Color3.fromRGB(210, 80, 75)
 	else
 		Respect.Text = "RespectFilteringEnabled: OFF"
+		Respect.TextColor3 = Color3.fromRGB(210, 80, 75)
 	end
-
-	Respect.TextColor3 = Color3.fromRGB(210, 80, 75)
 end
 
 UpdateRespect()
@@ -150,92 +140,93 @@ pcall(function()
 	SoundService:GetPropertyChangedSignal("RespectFilteringEnabled"):Connect(UpdateRespect)
 end)
 
-local AllButton = Instance.new("TextButton")
-AllButton.Position = UDim2.new(1, -330, 0, 1)
-AllButton.Size = UDim2.fromOffset(76, 18)
-AllButton.BackgroundColor3 = Color3.fromRGB(52, 91, 70)
-AllButton.BorderSizePixel = 0
-AllButton.Font = Enum.Font.GothamMedium
-AllButton.Text = "PLAY ALL"
-AllButton.TextSize = 7
-AllButton.TextColor3 = Color3.fromRGB(235, 239, 244)
-AllButton.Parent = Header
+local Credit = Instance.new("TextLabel")
+Credit.BackgroundTransparency = 1
+Credit.Position = UDim2.fromOffset(2, 35)
+Credit.Size = UDim2.fromOffset(250, 10)
+Credit.Font = Enum.Font.Gotham
+Credit.Text = "Made By Chxris - Rixer95-x2 In Youtube."
+Credit.TextSize = 7
+Credit.TextColor3 = Color3.fromRGB(105, 110, 120)
+Credit.TextXAlignment = Enum.TextXAlignment.Left
+Credit.Parent = Header
 
-local AllCorner = Instance.new("UICorner")
-AllCorner.CornerRadius = UDim.new(0, 4)
-AllCorner.Parent = AllButton
+local function MakeButton(Text, Position, Size, Background)
+	local Button = Instance.new("TextButton")
+	Button.Position = Position
+	Button.Size = Size
+	Button.BackgroundColor3 = Background
+	Button.BackgroundTransparency = 0.15
+	Button.BorderSizePixel = 0
+	Button.Font = Enum.Font.GothamMedium
+	Button.Text = Text
+	Button.TextSize = 7
+	Button.TextColor3 = Color3.fromRGB(235, 239, 244)
+	Button.Parent = Header
 
-local LoopAll = Instance.new("TextButton")
-LoopAll.Position = UDim2.new(1, -249, 0, 1)
-LoopAll.Size = UDim2.fromOffset(76, 18)
-LoopAll.BackgroundColor3 = Color3.fromRGB(83, 73, 43)
-LoopAll.BorderSizePixel = 0
-LoopAll.Font = Enum.Font.GothamMedium
-LoopAll.Text = "LOOPALL"
-LoopAll.TextSize = 7
-LoopAll.TextColor3 = Color3.fromRGB(235, 239, 244)
-LoopAll.Parent = Header
+	local ButtonCorner = Instance.new("UICorner")
+	ButtonCorner.CornerRadius = UDim.new(0, 4)
+	ButtonCorner.Parent = Button
 
-local LoopAllCorner = Instance.new("UICorner")
-LoopAllCorner.CornerRadius = UDim.new(0, 4)
-LoopAllCorner.Parent = LoopAll
+	return Button
+end
 
-local UnloopAll = Instance.new("TextButton")
-UnloopAll.Position = UDim2.new(1, -168, 0, 1)
-UnloopAll.Size = UDim2.fromOffset(76, 18)
-UnloopAll.BackgroundColor3 = Color3.fromRGB(83, 73, 43)
-UnloopAll.BorderSizePixel = 0
-UnloopAll.Font = Enum.Font.GothamMedium
-UnloopAll.Text = "UNLOOPALL"
-UnloopAll.TextSize = 7
-UnloopAll.TextColor3 = Color3.fromRGB(235, 239, 244)
-UnloopAll.Parent = Header
+local AllButton = MakeButton(
+	"Play All Sound",
+	UDim2.new(1, -350, 0, 1),
+	UDim2.fromOffset(82, 20),
+	Color3.fromRGB(52, 91, 70)
+)
 
-local UnloopCorner = Instance.new("UICorner")
-UnloopCorner.CornerRadius = UDim.new(0, 4)
-UnloopCorner.Parent = UnloopAll
+local LoopAllButton = MakeButton(
+	"LOOPALL",
+	UDim2.new(1, -263, 0, 1),
+	UDim2.fromOffset(65, 20),
+	Color3.fromRGB(83, 73, 43)
+)
 
-local RejoinButton = Instance.new("TextButton")
-RejoinButton.Position = UDim2.new(1, -87, 0, 1)
-RejoinButton.Size = UDim2.fromOffset(76, 18)
-RejoinButton.BackgroundColor3 = Color3.fromRGB(48, 67, 91)
-RejoinButton.BorderSizePixel = 0
-RejoinButton.Font = Enum.Font.GothamMedium
-RejoinButton.Text = "REJOIN"
-RejoinButton.TextSize = 7
-RejoinButton.TextColor3 = Color3.fromRGB(235, 239, 244)
-RejoinButton.Parent = Header
+local UnloopAll = MakeButton(
+	"UNLOOPALL",
+	UDim2.new(1, -193, 0, 1),
+	UDim2.fromOffset(80, 20),
+	Color3.fromRGB(83, 73, 43)
+)
 
-local RejoinCorner = Instance.new("UICorner")
-RejoinCorner.CornerRadius = UDim.new(0, 4)
-RejoinCorner.Parent = RejoinButton
+local RejoinButton = MakeButton(
+	"Rejoin",
+	UDim2.new(1, -108, 0, 1),
+	UDim2.fromOffset(80, 20),
+	Color3.fromRGB(48, 67, 91)
+)
 
 local VolumeSound = Instance.new("TextButton")
-VolumeSound.Position = UDim2.fromOffset(10, 75)
-VolumeSound.Size = UDim2.fromOffset(100, 14)
-VolumeSound.BackgroundColor3 = Color3.fromRGB(42, 75, 108)
+VolumeSound.Position = UDim2.fromOffset(255, 22)
+VolumeSound.Size = UDim2.fromOffset(82, 20)
+VolumeSound.BackgroundColor3 = Color3.fromRGB(83, 73, 43)
+VolumeSound.BackgroundTransparency = 0.15
 VolumeSound.BorderSizePixel = 0
 VolumeSound.Font = Enum.Font.GothamMedium
-VolumeSound.Text = "VOLUME SOUND"
-VolumeSound.TextSize = 6
+VolumeSound.Text = "VolumeSound"
+VolumeSound.TextSize = 7
 VolumeSound.TextColor3 = Color3.fromRGB(235, 239, 244)
-VolumeSound.Parent = Main
+VolumeSound.Parent = Header
 
 local VolumeCorner = Instance.new("UICorner")
 VolumeCorner.CornerRadius = UDim.new(0, 4)
 VolumeCorner.Parent = VolumeSound
 
 local BackButton = Instance.new("TextButton")
-BackButton.Position = UDim2.fromOffset(115, 75)
-BackButton.Size = UDim2.fromOffset(60, 14)
+BackButton.Position = UDim2.fromOffset(342, 22)
+BackButton.Size = UDim2.fromOffset(55, 20)
 BackButton.BackgroundColor3 = Color3.fromRGB(48, 67, 91)
+BackButton.BackgroundTransparency = 0.15
 BackButton.BorderSizePixel = 0
 BackButton.Font = Enum.Font.GothamMedium
-BackButton.Text = "RETOUR"
-BackButton.TextSize = 6
+BackButton.Text = "Retour"
+BackButton.TextSize = 7
 BackButton.TextColor3 = Color3.fromRGB(235, 239, 244)
 BackButton.Visible = false
-BackButton.Parent = Main
+BackButton.Parent = Header
 
 local BackCorner = Instance.new("UICorner")
 BackCorner.CornerRadius = UDim.new(0, 4)
@@ -243,7 +234,7 @@ BackCorner.Parent = BackButton
 
 local Search = Instance.new("TextBox")
 Search.Position = UDim2.fromOffset(10, 52)
-Search.Size = UDim2.new(1, -20, 0, 20)
+Search.Size = UDim2.new(1, -20, 0, 32)
 Search.BackgroundColor3 = Color3.fromRGB(27, 30, 37)
 Search.BorderSizePixel = 0
 Search.ClearTextOnFocus = false
@@ -251,18 +242,18 @@ Search.PlaceholderText = "Search sounds..."
 Search.PlaceholderColor3 = Color3.fromRGB(105, 110, 120)
 Search.Text = ""
 Search.TextColor3 = Color3.fromRGB(232, 234, 238)
-Search.TextSize = 8
+Search.TextSize = 10
 Search.Font = Enum.Font.Gotham
 Search.TextXAlignment = Enum.TextXAlignment.Left
 Search.Parent = Main
 
 local SearchPadding = Instance.new("UIPadding")
-SearchPadding.PaddingLeft = UDim.new(0, 8)
-SearchPadding.PaddingRight = UDim.new(0, 8)
+SearchPadding.PaddingLeft = UDim.new(0, 10)
+SearchPadding.PaddingRight = UDim.new(0, 10)
 SearchPadding.Parent = Search
 
 local SearchCorner = Instance.new("UICorner")
-SearchCorner.CornerRadius = UDim.new(0, 5)
+SearchCorner.CornerRadius = UDim.new(0, 6)
 SearchCorner.Parent = Search
 
 local List = Instance.new("ScrollingFrame")
@@ -551,8 +542,6 @@ local function ShowProperties(Sound)
 	Search.Visible = false
 	Count.Visible = false
 	Properties.Visible = true
-	VolumeSound.Visible = false
-	BackButton.Visible = false
 end
 
 local function HideProperties()
@@ -561,8 +550,6 @@ local function HideProperties()
 	List.Visible = true
 	Search.Visible = true
 	Count.Visible = true
-	VolumeSound.Visible = true
-	BackButton.Visible = false
 end
 
 Close.MouseButton1Click:Connect(HideProperties)
@@ -585,28 +572,6 @@ local function UpdateCount()
 	Count.Text = tostring(Amount) .. " sounds"
 end
 
-local function UpdateLoopButton(Sound)
-	local Row = Rows[Sound]
-
-	if not Row then
-		return
-	end
-
-	local LoopButton = Row:FindFirstChild("LoopButton")
-
-	if not LoopButton then
-		return
-	end
-
-	if Loops[Sound] then
-		LoopButton.Text = "Looping"
-		LoopButton.BackgroundColor3 = Color3.fromRGB(65, 105, 78)
-	else
-		LoopButton.Text = "Loop"
-		LoopButton.BackgroundColor3 = Color3.fromRGB(83, 73, 43)
-	end
-end
-
 local function StopLoop(Sound)
 	local Data = Loops[Sound]
 
@@ -621,7 +586,16 @@ local function StopLoop(Sound)
 		end)
 	end
 
-	UpdateLoopButton(Sound)
+	local Row = Rows[Sound]
+
+	if Row then
+		local LoopButton = Row:FindFirstChild("LoopButton")
+
+		if LoopButton then
+			LoopButton.Text = "Loop"
+			LoopButton.BackgroundColor3 = Color3.fromRGB(83, 73, 43)
+		end
+	end
 end
 
 local function StartLoop(Sound)
@@ -629,41 +603,40 @@ local function StartLoop(Sound)
 		return
 	end
 
-	if Loops[Sound] then
-		return
-	end
+	StopLoop(Sound)
 
 	local Data = {
 		Active = true
 	}
 
 	Loops[Sound] = Data
-	UpdateLoopButton(Sound)
+
+	local Row = Rows[Sound]
+
+	if Row then
+		local LoopButton = Row:FindFirstChild("LoopButton")
+
+		if LoopButton then
+			LoopButton.Text = "Looping"
+			LoopButton.BackgroundColor3 = Color3.fromRGB(65, 105, 78)
+		end
+	end
 
 	task.spawn(function()
-		while Data.Active and not Destroyed and Sound.Parent do
+		while Data.Active and Sound.Parent and not Destroyed do
 			pcall(function()
 				Sound:Play()
 			end)
 
-			local StartTime = os.clock()
+			task.wait(0.5)
 
-			while Data.Active and not Destroyed and Sound.Parent and os.clock() - StartTime < 0.5 do
-				task.wait()
-			end
-
-			if Data.Active and not Destroyed and Sound.Parent then
+			if Data.Active and Sound.Parent then
 				pcall(function()
 					Sound:Stop()
 				end)
 			end
 
 			task.wait()
-		end
-
-		if Loops[Sound] == Data then
-			Loops[Sound] = nil
-			UpdateLoopButton(Sound)
 		end
 	end)
 end
@@ -675,7 +648,6 @@ local function CreateRow(Sound, Order)
 
 	if Rows[Sound] then
 		Rows[Sound].LayoutOrder = Order
-		UpdateLoopButton(Sound)
 		return
 	end
 
@@ -726,6 +698,7 @@ local function CreateRow(Sound, Order)
 	PlayButton.Position = UDim2.new(1, -231, 0.5, -12)
 	PlayButton.Size = UDim2.fromOffset(51, 24)
 	PlayButton.BackgroundColor3 = Color3.fromRGB(52, 105, 75)
+	PlayButton.BackgroundTransparency = 0.15
 	PlayButton.BorderSizePixel = 0
 	PlayButton.Font = Enum.Font.GothamMedium
 	PlayButton.Text = "Play"
@@ -742,6 +715,7 @@ local function CreateRow(Sound, Order)
 	LoopButton.Position = UDim2.new(1, -176, 0.5, -12)
 	LoopButton.Size = UDim2.fromOffset(51, 24)
 	LoopButton.BackgroundColor3 = Color3.fromRGB(83, 73, 43)
+	LoopButton.BackgroundTransparency = 0.15
 	LoopButton.BorderSizePixel = 0
 	LoopButton.Font = Enum.Font.GothamMedium
 	LoopButton.Text = "Loop"
@@ -757,6 +731,7 @@ local function CreateRow(Sound, Order)
 	StopButton.Position = UDim2.new(1, -121, 0.5, -12)
 	StopButton.Size = UDim2.fromOffset(51, 24)
 	StopButton.BackgroundColor3 = Color3.fromRGB(112, 61, 61)
+	StopButton.BackgroundTransparency = 0.15
 	StopButton.BorderSizePixel = 0
 	StopButton.Font = Enum.Font.GothamMedium
 	StopButton.Text = "Stop"
@@ -772,6 +747,7 @@ local function CreateRow(Sound, Order)
 	CopyButton.Position = UDim2.new(1, -66, 0.5, -12)
 	CopyButton.Size = UDim2.fromOffset(61, 24)
 	CopyButton.BackgroundColor3 = Color3.fromRGB(42, 75, 108)
+	CopyButton.BackgroundTransparency = 0.15
 	CopyButton.BorderSizePixel = 0
 	CopyButton.Font = Enum.Font.GothamMedium
 	CopyButton.Text = "Copy"
@@ -805,12 +781,6 @@ local function CreateRow(Sound, Order)
 
 	StopButton.MouseButton1Click:Connect(function()
 		StopLoop(Sound)
-
-		if Sound and Sound.Parent then
-			pcall(function()
-				Sound:Stop()
-			end)
-		end
 	end)
 
 	CopyButton.MouseButton1Click:Connect(function()
@@ -820,7 +790,6 @@ local function CreateRow(Sound, Order)
 	end)
 
 	Rows[Sound] = Row
-	UpdateLoopButton(Sound)
 end
 
 local function QueueRefresh()
@@ -843,17 +812,21 @@ local function QueueRefresh()
 
 		for Key, Sound in pairs(SoundKeys) do
 			if not Sound.Parent then
-				if Loops[Sound] then
-					StopLoop(Sound)
-				end
-
 				SoundKeys[Key] = nil
 				Sounds[Sound] = nil
+				StopLoop(Sound)
 			end
 		end
 
 		for Key, Sound in pairs(SoundKeys) do
 			if Sound.Parent then
+				local VolumeAllowed = true
+
+				if VolumeFilter then
+					local Volume = Sound.Volume
+					VolumeAllowed = Volume > 0 and Volume % 1 == 0
+				end
+
 				local Match = SearchText == ""
 
 				if not Match then
@@ -866,7 +839,7 @@ local function QueueRefresh()
 						or Path:find(SearchText, 1, true)
 				end
 
-				if Match then
+				if Match and VolumeAllowed then
 					Order += 1
 					Alive[Sound] = true
 					CreateRow(Sound, Order)
@@ -912,15 +885,6 @@ end
 game.DescendantAdded:Connect(function(Object)
 	if Object:IsA("Sound") then
 		Register(Object)
-
-		if LoopAllActive then
-			task.defer(function()
-				if Object.Parent and not Loops[Object] then
-					StartLoop(Object)
-				end
-			end)
-		end
-
 		QueueRefresh()
 	end
 end)
@@ -956,40 +920,18 @@ Search:GetPropertyChangedSignal("Text"):Connect(function()
 end)
 
 VolumeSound.MouseButton1Click:Connect(function()
-	local Order = 0
-	local Alive = {}
-
-	for Sound in pairs(SoundKeys) do
-		if Sound and Sound.Parent then
-			local Volume = Sound.Volume
-
-			if Volume > 0 and Volume == math.floor(Volume) then
-				Order += 1
-				Alive[Sound] = true
-				CreateRow(Sound, Order)
-			end
-		end
-	end
-
-	for Sound, Row in pairs(Rows) do
-		if not Alive[Sound] then
-			Row:Destroy()
-			Rows[Sound] = nil
-		end
-	end
-
-	Search.Text = ""
-	Query = ""
-
-	VolumeSound.Visible = false
+	VolumeFilter = true
+	VolumeSound.Text = "VolumeSound ON"
+	VolumeSound.BackgroundColor3 = Color3.fromRGB(65, 105, 78)
 	BackButton.Visible = true
+	QueueRefresh()
 end)
 
 BackButton.MouseButton1Click:Connect(function()
+	VolumeFilter = false
+	VolumeSound.Text = "VolumeSound"
+	VolumeSound.BackgroundColor3 = Color3.fromRGB(83, 73, 43)
 	BackButton.Visible = false
-	VolumeSound.Visible = true
-	Search.Text = ""
-	Query = ""
 	QueueRefresh()
 end)
 
@@ -1010,23 +952,25 @@ AllButton.MouseButton1Click:Connect(function()
 			end
 		end
 
-		AllButton.Text = "PLAY ALL"
+		AllButton.Text = "Play All Sound"
 		AllButton.BackgroundColor3 = Color3.fromRGB(52, 91, 70)
 		return
 	end
 
-	if SoundService.RespectFilteringEnabled then
-		return
-	end
-
 	PlayingAll = true
-	AllButton.Text = "STOP ALL"
+	AllButton.Text = "Stop All Sound"
 	AllButton.BackgroundColor3 = Color3.fromRGB(112, 61, 61)
 
 	AllConnection = game.DescendantAdded:Connect(function(Object)
 		if PlayingAll and Object:IsA("Sound") then
+			Register(Object)
+
 			pcall(function()
 				Object:Play()
+
+				if Object.TimeLength > 0 then
+					Object.TimePosition = math.random() * Object.TimeLength
+				end
 			end)
 		end
 	end)
@@ -1041,6 +985,10 @@ AllButton.MouseButton1Click:Connect(function()
 				if Object and Object.Parent then
 					pcall(function()
 						Object:Play()
+
+						if Object.TimeLength > 0 then
+							Object.TimePosition = math.random() * Object.TimeLength
+						end
 					end)
 				end
 
@@ -1052,53 +1000,32 @@ AllButton.MouseButton1Click:Connect(function()
 	end)
 end)
 
-LoopAll.MouseButton1Click:Connect(function()
-	if LoopAllActive then
-		LoopAllActive = false
+LoopAllButton.MouseButton1Click:Connect(function()
+	if LoopingAll then
+		LoopingAll = false
+
+		LoopAllButton.Text = "LOOPALL"
+		LoopAllButton.BackgroundColor3 = Color3.fromRGB(83, 73, 43)
 
 		for Sound in pairs(Loops) do
 			StopLoop(Sound)
 		end
 
-		if LoopAllConnection then
-			LoopAllConnection:Disconnect()
-			LoopAllConnection = nil
-		end
-
-		LoopAll.Text = "LOOPALL"
-		LoopAll.BackgroundColor3 = Color3.fromRGB(83, 73, 43)
-
 		return
 	end
 
-	LoopAllActive = true
-	LoopAll.Text = "LOOPING ALL"
-	LoopAll.BackgroundColor3 = Color3.fromRGB(65, 105, 78)
+	LoopingAll = true
+	LoopAllButton.Text = "STOP LOOPALL"
+	LoopAllButton.BackgroundColor3 = Color3.fromRGB(65, 105, 78)
 
-	for _, Sound in pairs(SoundKeys) do
-		if Sound and Sound.Parent and not Loops[Sound] then
-			StartLoop(Sound)
-		end
-	end
-
-	LoopAllConnection = game.DescendantAdded:Connect(function(Object)
-		if LoopAllActive and Object:IsA("Sound") then
-			task.defer(function()
-				if Object.Parent and not Loops[Object] then
-					StartLoop(Object)
-				end
-			end)
-		end
-	end)
-
-	task.spawn(function()
-		while LoopAllActive and not Destroyed do
-			for _, Sound in pairs(SoundKeys) do
-				if not LoopAllActive then
+	LoopAllThread = task.spawn(function()
+		while LoopingAll and not Destroyed do
+			for Key, Sound in pairs(SoundKeys) do
+				if not LoopingAll then
 					break
 				end
 
-				if Sound and Sound.Parent and not Loops[Sound] then
+				if Sound and Sound.Parent then
 					StartLoop(Sound)
 				end
 			end
@@ -1109,12 +1036,10 @@ LoopAll.MouseButton1Click:Connect(function()
 end)
 
 UnloopAll.MouseButton1Click:Connect(function()
-	LoopAllActive = false
+	LoopingAll = false
 
-	if LoopAllConnection then
-		LoopAllConnection:Disconnect()
-		LoopAllConnection = nil
-	end
+	LoopAllButton.Text = "LOOPALL"
+	LoopAllButton.BackgroundColor3 = Color3.fromRGB(83, 73, 43)
 
 	for Sound in pairs(Loops) do
 		StopLoop(Sound)
@@ -1128,9 +1053,6 @@ UnloopAll.MouseButton1Click:Connect(function()
 			end)
 		end
 	end
-
-	LoopAll.Text = "LOOPALL"
-	LoopAll.BackgroundColor3 = Color3.fromRGB(83, 73, 43)
 end)
 
 RejoinButton.MouseButton1Click:Connect(function()
@@ -1201,7 +1123,7 @@ Gui.AncestryChanged:Connect(function(_, Parent)
 	if not Parent then
 		Destroyed = true
 		PlayingAll = false
-		LoopAllActive = false
+		LoopingAll = false
 
 		for Sound in pairs(Loops) do
 			StopLoop(Sound)
@@ -1210,11 +1132,6 @@ Gui.AncestryChanged:Connect(function(_, Parent)
 		if AllConnection then
 			AllConnection:Disconnect()
 			AllConnection = nil
-		end
-
-		if LoopAllConnection then
-			LoopAllConnection:Disconnect()
-			LoopAllConnection = nil
 		end
 	end
 end)
