@@ -365,7 +365,12 @@ Tab9:AddButton({
     end    
 })
 
-
+Tab9:AddButton({
+    Name = "Fe Kill Gui Direct Kill (Tool)",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/8M5rsaaQ/raw"))()
+    end    
+})
 
 Tab9:AddButton({
     Name = "Fe BigHead",
