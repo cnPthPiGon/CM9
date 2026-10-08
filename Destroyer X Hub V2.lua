@@ -366,6 +366,13 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "Fe Grab Player Gui (Tool)",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/VTXPl8J7/raw"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "Fr DropHats Giant",
     Callback = function()
         loadstring(game:HttpGet('https://paste.c-net.org/PhyllisWildly', true))()
