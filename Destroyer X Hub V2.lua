@@ -188,6 +188,13 @@ Tab3:AddButton({
 })
 
 Tab3:AddButton({
+    Name = "Fe Kill (Sword) Required",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLKEK12322/Fe-Kill-With-Sword/refs/heads/main/Fe%20Kill%20With%20Sword"))()
+    end    
+})
+
+Tab3:AddButton({
     Name = "trolling hub universal",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))()
