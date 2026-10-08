@@ -366,6 +366,23 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "Fr DropHats Giant",
+    Callback = function()
+        loadstring(game:HttpGet('https://paste.c-net.org/PhyllisWildly', true))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Fe Leg Resize",
+    Callback = function()
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://scriptblox.com/raw/Green-baseplate.-leg-resize-67430"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "LoopcBring By @rixer95-x2",
     Callback = function()
         local Players = game:GetService("Players")
