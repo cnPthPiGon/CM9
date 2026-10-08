@@ -366,6 +366,13 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "Fe Bring (Tool Required)",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/oQ9WDg9x/raw"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "Fe Kill Gui Direct Kill (Tool)",
     Callback = function()
         loadstring(game:HttpGet("https://pastefy.app/8M5rsaaQ/raw"))()
