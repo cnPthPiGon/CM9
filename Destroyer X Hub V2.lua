@@ -365,6 +365,88 @@ Tab9:AddButton({
     end    
 })
 
+
+
+Tab9:AddButton({
+    Name = "Fe BigHead",
+    Callback = function()
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+--body sizes: BodyHeightScale: 105%
+--            BodyWidthScale: 100%
+--            HeadScale: 100%
+--            BodyProportionScale: 0%
+--            AvatarPartScaleType: 100%
+
+
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Character = LocalPlayer.Character
+local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+
+function rm()
+	for i,v in pairs(Character:GetDescendants()) do
+		if v:IsA("BasePart") then
+			if v.Name == "Handle" or v.Name == "Head" then
+				if Character.Head:FindFirstChild("OriginalSize") then
+					Character.Head.OriginalSize:Destroy()
+				end
+			else
+				for i,cav in pairs(v:GetDescendants()) do
+					if cav:IsA("Attachment") then
+						if cav:FindFirstChild("OriginalPosition") then
+							cav.OriginalPosition:Destroy()  
+						end
+					end
+				end
+				v:FindFirstChild("OriginalSize"):Destroy()
+				if v:FindFirstChild("AvatarPartScaleType") then
+					v:FindFirstChild("AvatarPartScaleType"):Destroy()
+				end
+			end
+		end
+	end
+end
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyProportionScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyHeightScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyWidthScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyDepthScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("HeadScale"):Destroy()
+wait(1)
+
+for i,v in pairs(game.Players.LocalPlayer.Character.Humanoid:GetChildren()) do
+   if string.find(v.Name,"Scale") and v.Name ~= "HeadScale" then
+       repeat wait() until game.Players.LocalPlayer.Character.Head:FindFirstChild("OriginalSize")
+       game.Players.LocalPlayer.Character.Head.OriginalSize:Destroy()
+       v:Destroy()
+       game.Players.LocalPlayer.Character.Head:WaitForChild("OriginalSize")
+       game.Players.LocalPlayer.Character.Head.OriginalSize:Destroy()
+   end
+end
+wait()
+game.Players.LocalPlayer.Character.Head.Mesh:Destroy()
+    end    
+})
+
 Tab9:AddButton({
     Name = "Fe Grab Player Gui (Tool)",
     Callback = function()
@@ -373,9 +455,19 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
-    Name = "Fr DropHats Giant",
+    Name = "Fe DropHats Giant",
     Callback = function()
         loadstring(game:HttpGet('https://paste.c-net.org/PhyllisWildly', true))()
+    end    
+})
+
+Tab9:AddButton({
+    Name = "Fe Giant Hats (hats Required)",
+    Callback = function()
+        --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://paste.c-net.org/BansheeAvery",true))()
     end    
 })
 
