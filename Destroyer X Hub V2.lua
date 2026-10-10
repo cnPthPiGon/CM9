@@ -771,6 +771,13 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "Fe Dance Tool Best Script",
+    Callback = function()
+        loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-R15-Dance-Base-By-RealGood-246269"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "Play All Sounds (risk)",
     Callback = function()
         local duration = 99999999999999999999999 -- integer only, no decimals
