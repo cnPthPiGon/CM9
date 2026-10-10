@@ -373,6 +373,13 @@ Tab3:AddButton({
 })
 
 Tab3:AddButton({
+    Name = "Dex Decomiler Fixed",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Dex-PlusPlus-Decompiler-Fix-206651"))()
+    end    
+})
+
+Tab3:AddButton({
     Name = "Audio panel",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Audio-Panel-11581"))()
