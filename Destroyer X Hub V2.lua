@@ -1122,6 +1122,13 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "Fe invisible tool",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fe-Invisible-Tool-38853"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "invisible Gui",
     Callback = function()
         loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
