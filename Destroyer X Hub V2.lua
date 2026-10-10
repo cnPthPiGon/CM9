@@ -869,6 +869,13 @@ for i,v in pairs(sounds) do
 })
 
 Tab9:AddButton({
+    Name = "Sound Explorer By Rixer95-x2 & Chxris",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/bHa6HDFc"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "Fe Giant Hats (hats Required)",
     Callback = function()
         --[[
