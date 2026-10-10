@@ -4,10 +4,10 @@ local Window = RixerLibrary:MakeWindow({
     Name = "Destroyer hub",
     HidePremium = false,
     SaveConfig = true,
-    ConfigFolder = "DestroyerHub" -- Met un nom personnalisé pour ton hub ici
+    ConfigFolder = "DestroyerHub"
 })
 
-print("the owner of the scripts is rixer95-x2 in youtube.") -- Just a debug
+print("the owner of the scripts is rixer95-x2 in youtube.")
 
 local Tab1 = Window:MakeTab({
     Name = "kill/bringHead",
