@@ -386,6 +386,12 @@ Tab3:AddButton({
     end    
 })
 
+Tab3:AddButton({
+    Name = "Backdoor Scanner V2",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Secret-Administrator-Service-Backdoor-scanner-140475"))()
+    end    
+})
 
 Tab3:AddButton({
     Name = "Audio panel",
