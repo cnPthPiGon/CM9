@@ -380,6 +380,14 @@ Tab3:AddButton({
 })
 
 Tab3:AddButton({
+    Name = "c00lgui 25",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-c00lgui-25-11361"))()
+    end    
+})
+
+
+Tab3:AddButton({
     Name = "Audio panel",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Audio-Panel-11581"))()
