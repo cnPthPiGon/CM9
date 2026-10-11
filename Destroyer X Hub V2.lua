@@ -684,6 +684,241 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "Module Exploit Garbage getgc Infinite Ammo And More...",
+    Callback = function()
+        local garbage = getgc(true)
+
+for i, tbl in pairs(garbage) do
+    if type(tbl) == "table" then
+        if rawget(tbl, "ReloadTime") ~= nil then
+            rawset(tbl, "ReloadTime", 0)
+        end
+
+        if rawget(tbl, "FireRate") ~= nil then
+            rawset(tbl, "FireRate", 0)
+        end
+
+        if rawget(tbl, "Cooldown") ~= nil then
+            rawset(tbl, "Cooldown", 0)
+        end
+
+        if rawget(tbl, "ShotCooldown") ~= nil then
+            rawset(tbl, "ShotCooldown", 0)
+        end
+
+        if rawget(tbl, "EquipCooldown") ~= nil then
+            rawset(tbl, "EquipCooldown", 0)
+        end
+
+        if rawget(tbl, "Damage") ~= nil then
+            rawset(tbl, "Damage", 999999999999999999)
+        end
+
+        if rawget(tbl, "BaseDamage") ~= nil then
+            rawset(tbl, "BaseDamage", 999999999999999999)
+        end
+
+        if rawget(tbl, "HeadDamage") ~= nil then
+            rawset(tbl, "HeadDamage", 999999999999999999)
+        end
+
+        if rawget(tbl, "HeadshotDamage") ~= nil then
+            rawset(tbl, "HeadshotDamage", 999999999999999999)
+        end
+
+        if rawget(tbl, "BodyDamage") ~= nil then
+            rawset(tbl, "BodyDamage", 999999999999999999)
+        end
+
+        if rawget(tbl, "LimbDamage") ~= nil then
+            rawset(tbl, "LimbDamage", 999999999999999999)
+        end
+
+        if rawget(tbl, "CriticalDamage") ~= nil then
+            rawset(tbl, "CriticalDamage", 999999999999999999)
+        end
+
+        if rawget(tbl, "DamageMultiplier") ~= nil then
+            rawset(tbl, "DamageMultiplier", 999999999999999999)
+        end
+
+        if rawget(tbl, "HeadshotMultiplier") ~= nil then
+            rawset(tbl, "HeadshotMultiplier", 999999999999999999)
+        end
+
+        if rawget(tbl, "MinDamage") ~= nil then
+            rawset(tbl, "MinDamage", 999999999999999999)
+        end
+
+        if rawget(tbl, "MaxDamage") ~= nil then
+            rawset(tbl, "MaxDamage", 999999999999999999)
+        end
+
+        if rawget(tbl, "Recoil") ~= nil then
+            rawset(tbl, "Recoil", 0)
+        end
+
+        if rawget(tbl, "Spread") ~= nil then
+            rawset(tbl, "Spread", 0)
+        end
+
+        if rawget(tbl, "AimSpread") ~= nil then
+            rawset(tbl, "AimSpread", 0)
+        end
+
+        if rawget(tbl, "Bloom") ~= nil then
+            rawset(tbl, "Bloom", 0)
+        end
+
+        if rawget(tbl, "Sway") ~= nil then
+            rawset(tbl, "Sway", 0)
+        end
+
+        if rawget(tbl, "RecoilTime") ~= nil then
+            rawset(tbl, "RecoilTime", 0)
+        end
+
+        if rawget(tbl, "RecoveryTime") ~= nil then
+            rawset(tbl, "RecoveryTime", 0)
+        end
+
+        if rawget(tbl, "VerticalRecoil") ~= nil then
+            rawset(tbl, "VerticalRecoil", 0)
+        end
+
+        if rawget(tbl, "HorizontalRecoil") ~= nil then
+            rawset(tbl, "HorizontalRecoil", 0)
+        end
+
+        if rawget(tbl, "HipFireSpread") ~= nil then
+            rawset(tbl, "HipFireSpread", 0)
+        end
+
+        if rawget(tbl, "MovementSpread") ~= nil then
+            rawset(tbl, "MovementSpread", 0)
+        end
+
+        if rawget(tbl, "JumpSpread") ~= nil then
+            rawset(tbl, "JumpSpread", 0)
+        end
+
+        if rawget(tbl, "BulletSpeed") ~= nil then
+            rawset(tbl, "BulletSpeed", 999999999999999999)
+        end
+
+        if rawget(tbl, "ProjectileSpeed") ~= nil then
+            rawset(tbl, "ProjectileSpeed", 999999999999999999)
+        end
+
+        if rawget(tbl, "Range") ~= nil then
+            rawset(tbl, "Range", 999999999999999999)
+        end
+
+        if rawget(tbl, "Penetration") ~= nil then
+            rawset(tbl, "Penetration", 999999999999999999)
+        end
+
+        if rawget(tbl, "ArmorPenetration") ~= nil then
+            rawset(tbl, "ArmorPenetration", 999999999999999999)
+        end
+
+        if rawget(tbl, "WallPenetration") ~= nil then
+            rawset(tbl, "WallPenetration", 999999999999999999)
+        end
+
+        if rawget(tbl, "BulletDrop") ~= nil then
+            rawset(tbl, "BulletDrop", 0)
+        end
+
+        if rawget(tbl, "Ammo") ~= nil then
+            rawset(tbl, "Ammo", 99999999999999999999999)
+        end
+
+        if rawget(tbl, "MaxAmmo") ~= nil then
+            rawset(tbl, "MaxAmmo", 99999999999999999999999)
+        end
+
+        if rawget(tbl, "AmmoCapacity") ~= nil then
+            rawset(tbl, "AmmoCapacity", 99999999999999999999999)
+        end
+
+        if rawget(tbl, "EquipTime") ~= nil then
+            rawset(tbl, "EquipTime", 0)
+        end
+
+        if rawget(tbl, "DrawTime") ~= nil then
+            rawset(tbl, "DrawTime", 0)
+        end
+
+        if rawget(tbl, "AimTime") ~= nil then
+            rawset(tbl, "AimTime", 0)
+        end
+
+        if rawget(tbl, "SprintTime") ~= nil then
+            rawset(tbl, "SprintTime", 0)
+        end
+
+        if rawget(tbl, "ADS time") ~= nil then
+            rawset(tbl, "ADS time", 0)
+        end
+
+        if rawget(tbl, "Accuracy") ~= nil then
+            rawset(tbl, "Accuracy", 999999999999999999)
+        end
+
+        if rawget(tbl, "ReloadDuration") ~= nil then
+            rawset(tbl, "ReloadDuration", 0)
+        end
+      
+        if rawget(tbl, "Auto") ~= nil then
+            rawset(tbl, "Auto", true)
+        end
+      
+        if rawget(tbl, "AmmoPerClip") ~= nil then
+            rawset(tbl, "AmmoPerClip", 99999999999999999999999)
+        end
+        
+        if rawget(tbl, "AmmoPerClips") ~= nil then
+            rawset(tbl, "AmmoPerClips", 99999999999999999999999)
+        end
+
+        if rawget(tbl, "Spread") ~= nil then
+            rawset(tbl, "Spread", 0)
+        end
+      
+        if rawget(tbl, "MaxAmmo") ~= nil then
+            rawset(tbl, "MaxAmmo", 99999999999999999999999)
+        end
+      
+        if rawget(tbl, "Clips") ~= nil then
+            rawset(tbl, "Clips", 99999999999999999999999)
+        end
+        
+        if rawget(tbl, "Clip") ~= nil then
+            rawset(tbl, "Clip", 99999999999999999999999)
+        end
+      
+        if rawget(tbl, "BulletPerShot") ~= nil then
+            rawset(tbl, "BulletPerShot", 500)
+        end
+        
+        if rawget(tbl, "MaxClip") ~= nil then
+            rawset(tbl, "MaxClip", 99999999999999999999999)
+        end
+        
+        if rawget(tbl, "MaxClips") ~= nil then
+            rawset(tbl, "MaxClips", 99999999999999999999999)
+        end
+      
+        if rawget(tbl, "AimTransitionTime") ~= nil then
+            rawset(tbl, "AimTransitionTime", 0)
+        end
+    end
+			end
+    end    
+})
+
+Tab9:AddButton({
     Name = "Fe Tall",
     Callback = function()
         --[[
