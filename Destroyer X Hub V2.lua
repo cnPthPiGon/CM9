@@ -686,7 +686,7 @@ Tab9:AddButton({
 Tab9:AddButton({
     Name = "Universal Silent Aim (WORKING GOOD) FOV",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/bHa6HDFc"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/Xw76vvjf"))()
     end    
 })
 
