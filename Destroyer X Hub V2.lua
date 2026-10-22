@@ -691,6 +691,13 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "Auto Wallhop/Wallflick",
+    Callback = function()
+        loadstring(game:HttpGet("https://encrypt-x.pages.dev/Scripts?Id=2524388554362"))("2524388554362")
+    end    
+})
+
+Tab9:AddButton({
     Name = "Module Exploit Garbage getgc Infinite Ammo And More...",
     Callback = function()
         local garbage = getgc(true)
