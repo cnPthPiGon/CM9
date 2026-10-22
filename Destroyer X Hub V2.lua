@@ -684,6 +684,13 @@ Tab9:AddButton({
 })
 
 Tab9:AddButton({
+    Name = "Universal Silent Aim (WORKING GOOD) FOV",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/bHa6HDFc"))()
+    end    
+})
+
+Tab9:AddButton({
     Name = "Module Exploit Garbage getgc Infinite Ammo And More...",
     Callback = function()
         local garbage = getgc(true)
