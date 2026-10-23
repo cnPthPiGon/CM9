@@ -625,7 +625,156 @@ local Tab7 = Window:MakeTab({
 Tab7:AddButton({
     Name = "AntiKick Max",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/Best-Script-Server-and-client/refs/heads/main/BestAntiKick-Max-Possible.lua"))()
+        -- Made By Rixer95-x2 In Youtube
+getgenv().AntiKickMax = true
+
+local Players = game:GetService("Players")
+
+local LocalPlayer = Players.LocalPlayer
+
+local RunService = game:GetService("RunService")
+
+local StarterGui = game:GetService("StarterGui")
+
+local mt = getrawmetatable(game)
+
+local function showKickBlocked()
+
+    pcall(function()
+
+        StarterGui:SetCore("SendNotification", {
+
+            Title = "",
+
+            Text = "Kick blocked",
+
+            Duration = 2,
+
+            Icon = "",
+
+        })
+
+    end)
+
+end
+
+if getgenv().AntiKickLoaded then return end
+
+getgenv().AntiKickLoaded = true
+
+setreadonly(mt, false)
+
+local old_namecall = mt.__namecall
+
+mt.__namecall = newcclosure(function(self, ...)
+
+    local method = getnamecallmethod()
+
+    local args = {...}
+
+    
+
+    if self == LocalPlayer and (method == "Kick" or method:lower():find("kick") or method:lower():find("ban")) then
+
+        showKickBlocked()
+
+        return
+
+    end
+
+    
+
+    if method == "FireServer" and (tostring(self):find("Kick") or tostring(self):find("Ban") or tostring(self):find("exploit")) then
+
+        showKickBlocked()
+
+        return
+
+    end
+
+    
+
+    if method == "Disconnect" and self == LocalPlayer then
+
+        showKickBlocked()
+
+        return
+
+    end
+
+    
+
+    return old_namecall(self, ...)
+
+end)
+
+if hookfunction then
+
+    hookfunction(LocalPlayer.Kick, function() showKickBlocked() end)
+
+end
+
+local old_error = error
+
+error = function(msg, level)
+
+    local s = tostring(msg):lower()
+
+    if s:find("kick") or s:find("exploit") or s:find("ban") or #tostring(msg) > 1000 then
+
+        showKickBlocked()
+
+        return
+
+    end
+
+    return old_error(msg, level)
+
+end
+
+spawn(function()
+
+    while task.wait(0.15) do
+
+        pcall(function()
+
+            for _, c in ipairs(getconnections(LocalPlayer.Idled)) do
+
+                c:Disable()
+
+            end
+
+        end)
+
+        
+
+        pcall(function()
+
+            setreadonly(mt, false)
+
+            mt.__namecall = newcclosure(function(self, ...)
+
+                if self == LocalPlayer and getnamecallmethod():lower():find("kick") then
+
+                    showKickBlocked()
+
+                    return
+
+                end
+
+                return old_namecall(self, ...)
+
+            end)
+
+            setreadonly(mt, true)
+
+        end)
+
+    end
+
+end)
+
+setreadonly(mt, true)
     end    
 })
 
