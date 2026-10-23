@@ -394,7 +394,7 @@ Tab3:AddButton({
 })
 
 Tab3:AddButton({
-    Name = "Dex Decomiler Fixed",
+    Name = "Dex Decompiler Fixed",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Dex-PlusPlus-Decompiler-Fix-206651"))()
     end    
